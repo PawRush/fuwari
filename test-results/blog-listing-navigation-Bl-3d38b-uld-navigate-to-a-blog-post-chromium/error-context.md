@@ -1,0 +1,317 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e4]:
+    - navigation "Primary" [ref=e5]:
+      - navigation [ref=e6]:
+        - link "Astro Logo" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: Astro Logo
+          - img [ref=e9]
+        - generic [ref=e17]:
+          - link "Documentation" [ref=e18] [cursor=pointer]:
+            - /url: https://docs.astro.build
+          - link "Blog" [ref=e19] [cursor=pointer]:
+            - /url: /blog/
+          - group [ref=e21]:
+            - generic "Resources" [ref=e22] [cursor=pointer]:
+              - text: Resources
+              - img [ref=e23]
+          - group [ref=e26]:
+            - generic "Community" [ref=e27] [cursor=pointer]:
+              - text: Community
+              - img [ref=e28]
+          - group [ref=e31]:
+            - generic "Enterprise" [ref=e32] [cursor=pointer]:
+              - text: Enterprise
+              - img [ref=e33]
+        - link "Go to Astro's GitHub repo" [ref=e37] [cursor=pointer]:
+          - /url: https://github.com/withastro/astro
+          - generic [ref=e38]: Go to Astro's GitHub repo
+          - img [ref=e39]
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - heading "Jumpstart your next project with a theme" [level=1] [ref=e46]
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - heading "Featured themes" [level=2] [ref=e50]
+          - paragraph [ref=e51]: Professional themes designed and developed by our sponsors
+        - generic [ref=e52]:
+          - article "Shadcnblocks Astro Themes Bundle" [ref=e53]:
+            - link "Shadcnblocks Astro Themes Bundle 7 Templates & 800 block components built with Astro, shadcn/ui & Tailwind. Rob Austin Paid" [ref=e54] [cursor=pointer]:
+              - /url: /themes/details/shadcnblocks-astro-themes-bundle/
+              - generic [ref=e55]:
+                - generic [ref=e56]:
+                  - heading "Shadcnblocks Astro Themes Bundle" [level=3] [ref=e57]
+                  - paragraph [ref=e58]: 7 Templates & 800 block components built with Astro, shadcn/ui & Tailwind.
+                - generic [ref=e59]:
+                  - generic [ref=e61]: Rob Austin
+                  - paragraph [ref=e62]: Paid
+          - article "Astro Themes All-Access Pass" [ref=e63]:
+            - link "Astro Themes All-Access Pass Get 32+ production-ready premium Astro themes and future themes all with a one-time purchase. Themefisher Paid" [ref=e64] [cursor=pointer]:
+              - /url: /themes/details/themefisher-astro-bundle/
+              - generic [ref=e65]:
+                - generic [ref=e66]:
+                  - heading "Astro Themes All-Access Pass" [level=3] [ref=e67]
+                  - paragraph [ref=e68]: Get 32+ production-ready premium Astro themes and future themes all with a one-time purchase.
+                - generic [ref=e69]:
+                  - generic [ref=e71]: Themefisher
+                  - paragraph [ref=e72]: Paid
+          - article "Darkrise Astro" [ref=e73]:
+            - link "Darkrise Astro DarkRise is a high-performance Astro theme for SaaS and startups. Its sleek design and flexible layout options let you create stunning websites quickly and easily. Enjoy blazing-fast load times and captivate your audience. Themefisher Paid" [ref=e74] [cursor=pointer]:
+              - /url: /themes/details/darkrise-astro/
+              - generic [ref=e75]:
+                - generic [ref=e76]:
+                  - heading "Darkrise Astro" [level=3] [ref=e77]
+                  - paragraph [ref=e78]: DarkRise is a high-performance Astro theme for SaaS and startups. Its sleek design and flexible layout options let you create stunning websites quickly and easily. Enjoy blazing-fast load times and captivate your audience.
+                - generic [ref=e79]:
+                  - generic [ref=e81]: Themefisher
+                  - paragraph [ref=e82]: Paid
+          - article "Upstart – SaaS & Startups Theme" [ref=e83]:
+            - link "Upstart – SaaS & Startups Theme a multilingual, GDPR-compliant Astro business theme built for saas, marketing, startup landing pages, and product launches. Designed with SEO optimization, fast performance, and pre-built layouts. Getastrothemes Paid" [ref=e84] [cursor=pointer]:
+              - /url: /themes/details/upstart-trendy-and-modern-theme-for-saas-startups/
+              - generic [ref=e85]:
+                - generic [ref=e86]:
+                  - heading "Upstart – SaaS & Startups Theme" [level=3] [ref=e87]
+                  - paragraph [ref=e88]: a multilingual, GDPR-compliant Astro business theme built for saas, marketing, startup landing pages, and product launches. Designed with SEO optimization, fast performance, and pre-built layouts.
+                - generic [ref=e89]:
+                  - generic [ref=e91]: Getastrothemes
+                  - paragraph [ref=e92]: Paid
+          - article "Looka ∙ Multipurpose Astro Theme" [ref=e93]:
+            - link "Looka ∙ Multipurpose Astro Theme A modern, multilingual, GDPR-compliant Astro business theme built for marketing, and product showcases. Perfect for consultants, agencies, IT firms, startups, legal, healthcare, and finance. Getastrothemes Paid" [ref=e94] [cursor=pointer]:
+              - /url: /themes/details/looka-premium-multilingual-astro-js-theme-for-agencies-startups-developers/
+              - generic [ref=e95]:
+                - generic [ref=e96]:
+                  - heading "Looka ∙ Multipurpose Astro Theme" [level=3] [ref=e97]
+                  - paragraph [ref=e98]: A modern, multilingual, GDPR-compliant Astro business theme built for marketing, and product showcases. Perfect for consultants, agencies, IT firms, startups, legal, healthcare, and finance.
+                - generic [ref=e99]:
+                  - generic [ref=e101]: Getastrothemes
+                  - paragraph [ref=e102]: Paid
+          - article "Lexington Themes Full Access" [ref=e103]:
+            - link "Lexington Themes Full Access Christmas sales — New themes. Lifetime updates. Unlimited projects. GitHub & file access. 40+ themes for only $99/One time payment Lexington Themes Paid" [ref=e104] [cursor=pointer]:
+              - /url: /themes/details/lexington-themes-bundle/
+              - generic [ref=e105]:
+                - generic [ref=e106]:
+                  - heading "Lexington Themes Full Access" [level=3] [ref=e107]
+                  - paragraph [ref=e108]: Christmas sales — New themes. Lifetime updates. Unlimited projects. GitHub & file access. 40+ themes for only $99/One time payment
+                - generic [ref=e109]:
+                  - generic [ref=e111]: Lexington Themes
+                  - paragraph [ref=e112]: Paid
+          - article "Fortify Astro" [ref=e113]:
+            - link "Fortify Astro Fortify Astro is a sleek, modern template ideal for security startups. With 13 pre-designed pages, it helps you create a stunning website that highlights your products and services. This responsive template ensures a great look on all devices. Themefisher Paid" [ref=e114] [cursor=pointer]:
+              - /url: /themes/details/fortify-astro/
+              - generic [ref=e115]:
+                - generic [ref=e116]:
+                  - heading "Fortify Astro" [level=3] [ref=e117]
+                  - paragraph [ref=e118]: Fortify Astro is a sleek, modern template ideal for security startups. With 13 pre-designed pages, it helps you create a stunning website that highlights your products and services. This responsive template ensures a great look on all devices.
+                - generic [ref=e119]:
+                  - generic [ref=e121]: Themefisher
+                  - paragraph [ref=e122]: Paid
+          - article "Black Friday Bundle" [ref=e123]:
+            - link "Black Friday Bundle Unlock three premium Astro templates, Foxi Pro, Toki, and Mizu — in one powerful bundle designed for startups, SaaS, and agencies. oxygenna-themes Paid" [ref=e124] [cursor=pointer]:
+              - /url: /themes/details/black-friday-bundle/
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - heading "Black Friday Bundle" [level=3] [ref=e127]
+                  - paragraph [ref=e128]: Unlock three premium Astro templates, Foxi Pro, Toki, and Mizu — in one powerful bundle designed for startups, SaaS, and agencies.
+                - generic [ref=e129]:
+                  - generic [ref=e131]: oxygenna-themes
+                  - paragraph [ref=e132]: Paid
+          - article "Cosmic Themes All Access" [ref=e133]:
+            - link "Cosmic Themes All Access All current and future production-ready templates. Powerful i18n capabilities, CMS integration, animations, SEO, and more. Cosmic Themes Paid" [ref=e134] [cursor=pointer]:
+              - /url: /themes/details/cosmic-themes-all-access/
+              - generic [ref=e135]:
+                - generic [ref=e136]:
+                  - heading "Cosmic Themes All Access" [level=3] [ref=e137]
+                  - paragraph [ref=e138]: All current and future production-ready templates. Powerful i18n capabilities, CMS integration, animations, SEO, and more.
+                - generic [ref=e139]:
+                  - generic [ref=e141]: Cosmic Themes
+                  - paragraph [ref=e142]: Paid
+        - link "Discover more themes" [ref=e144] [cursor=pointer]:
+          - /url: /themes/1/
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - heading "Find the theme for you" [level=2] [ref=e148]
+          - paragraph [ref=e149]: Launch your next site at light speed with our catalog of free and premium Astro themes
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - heading "Blogs" [level=3] [ref=e153]:
+                - link "Blogs" [ref=e154] [cursor=pointer]:
+                  - /url: /themes/1/?search=&categories%5B%5D=blog
+              - paragraph [ref=e155]: Whether you want sleek minimalism or bold colors, find the blog template for you.
+            - paragraph [ref=e160]:
+              - generic [ref=e161]: Browse blog themes
+              - img [ref=e162]
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - heading "E-commerce" [level=3] [ref=e166]:
+                - link "E-commerce" [ref=e167] [cursor=pointer]:
+                  - /url: /themes/1/?search=&categories%5B%5D=ecommerce
+              - paragraph [ref=e168]: Every second counts. Find an e-commerce template that loads fast and looks great.
+            - paragraph [ref=e173]:
+              - generic [ref=e174]: Browse e-commerce themes
+              - img [ref=e175]
+          - generic [ref=e177]:
+            - generic [ref=e178]:
+              - heading "Landing pages" [level=3] [ref=e179]:
+                - link "Landing pages" [ref=e180] [cursor=pointer]:
+                  - /url: /themes/1/?search=&categories%5B%5D=landing-page
+              - paragraph [ref=e181]: Showcase your product or service with a stylish landing page template.
+            - paragraph [ref=e186]:
+              - generic [ref=e187]: Browse landing page themes
+              - img [ref=e188]
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - heading "Portfolio" [level=3] [ref=e192]:
+                - link "Portfolio" [ref=e193] [cursor=pointer]:
+                  - /url: /themes/1/?search=&categories%5B%5D=portfolio
+              - paragraph [ref=e194]: Share your art, coding projects, music, and more with an Astro portfolio theme.
+            - paragraph [ref=e199]:
+              - generic [ref=e200]: Browse portfolio themes
+              - img [ref=e201]
+          - generic [ref=e203]:
+            - generic [ref=e204]:
+              - heading "Documentation" [level=3] [ref=e205]:
+                - link "Documentation" [ref=e206] [cursor=pointer]:
+                  - /url: /themes/1/?search=&categories%5B%5D=docs
+              - paragraph [ref=e207]: Ship your next technical documentation website with an Astro docs theme.
+            - paragraph [ref=e212]:
+              - generic [ref=e213]: Browse docs themes
+              - img [ref=e214]
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - heading "...and more!" [level=3] [ref=e218]:
+                - link "...and more!" [ref=e219] [cursor=pointer]:
+                  - /url: /themes/1/
+              - paragraph [ref=e220]: Discover all Astro themes and filter by your favorite technology, from Tailwind to Vue.
+            - paragraph [ref=e225]:
+              - generic [ref=e226]: Browse all themes
+              - img [ref=e227]
+      - generic [ref=e230]:
+        - img [ref=e231]
+        - generic [ref=e233]:
+          - heading "Showcase your themes" [level=2] [ref=e234]
+          - paragraph [ref=e235]: Want to feature your theme on this page? Become a theme sponsor to showcase your premium designs and help support Astro’s open source mission.
+        - link "Become a theme sponsor" [ref=e236] [cursor=pointer]:
+          - /url: https://opencollective.com/astrodotbuild/contribute/theme-sponsor-86430
+  - contentinfo [ref=e237]:
+    - generic [ref=e238]:
+      - navigation "Secondary" [ref=e239]:
+        - generic [ref=e240]:
+          - paragraph [ref=e241]: Let's keep in touch
+          - paragraph [ref=e242]: Enter your email to stay up to date with the latest updates from Astro.
+          - generic [ref=e243]:
+            - generic [ref=e244]: Email
+            - textbox "Email" [ref=e245]:
+              - /placeholder: your@email.com
+            - button "Subscribe to our newsletter" [ref=e246]
+        - generic [ref=e247]:
+          - generic [ref=e248]:
+            - heading "Resources" [level=2] [ref=e249]
+            - list "Resources" [ref=e250]:
+              - listitem [ref=e251]:
+                - link "Docs" [ref=e252] [cursor=pointer]:
+                  - /url: https://docs.astro.build/en/getting-started/
+              - listitem [ref=e253]:
+                - link "Themes" [ref=e254] [cursor=pointer]:
+                  - /url: /themes/
+              - listitem [ref=e255]:
+                - link "Integrations" [ref=e256] [cursor=pointer]:
+                  - /url: /integrations/
+              - listitem [ref=e257]:
+                - link "Site showcase" [ref=e258] [cursor=pointer]:
+                  - /url: /showcase/
+              - listitem [ref=e259]:
+                - link "Starter templates" [ref=e260] [cursor=pointer]:
+                  - /url: https://astro.new/
+          - generic [ref=e261]:
+            - heading "About" [level=2] [ref=e262]
+            - list "About" [ref=e263]:
+              - listitem [ref=e264]:
+                - link "Blog" [ref=e265] [cursor=pointer]:
+                  - /url: /blog/
+              - listitem [ref=e266]:
+                - link "Case studies" [ref=e267] [cursor=pointer]:
+                  - /url: /case-studies/
+              - listitem [ref=e268]:
+                - link "Partner with us" [ref=e269] [cursor=pointer]:
+                  - /url: /partnerships/
+              - listitem [ref=e270]:
+                - link "Press" [ref=e271] [cursor=pointer]:
+                  - /url: /press/
+              - listitem [ref=e272]:
+                - link "Agencies" [ref=e273] [cursor=pointer]:
+                  - /url: /agencies/
+          - generic [ref=e274]:
+            - heading "Community" [level=2] [ref=e275]
+            - list "Community" [ref=e276]:
+              - listitem [ref=e277]:
+                - link "Contributing" [ref=e278] [cursor=pointer]:
+                  - /url: https://github.com/withastro/astro/blob/main/CONTRIBUTING.md
+              - listitem [ref=e279]:
+                - link "Sponsors" [ref=e280] [cursor=pointer]:
+                  - /url: https://opencollective.com/astrodotbuild
+              - listitem [ref=e281]:
+                - link "Wallpapers" [ref=e282] [cursor=pointer]:
+                  - /url: /wallpapers/
+              - listitem [ref=e283]:
+                - link "Swag Shop" [ref=e284] [cursor=pointer]:
+                  - /url: https://shop.astro.build
+          - generic [ref=e285]:
+            - heading "Legal" [level=2] [ref=e286]
+            - list "Legal" [ref=e287]:
+              - listitem [ref=e288]:
+                - link "Telemetry" [ref=e289] [cursor=pointer]:
+                  - /url: /telemetry/
+              - listitem [ref=e290]:
+                - link "Privacy Policy" [ref=e291] [cursor=pointer]:
+                  - /url: /privacy/
+              - listitem [ref=e292]:
+                - link "Terms of Service" [ref=e293] [cursor=pointer]:
+                  - /url: /terms/
+      - separator [ref=e294]
+      - navigation "Legal" [ref=e295]:
+        - generic [ref=e296]:
+          - img [ref=e297]
+          - link "MIT License © 2025" [ref=e299] [cursor=pointer]:
+            - /url: https://github.com/withastro/astro/blob/main/LICENSE
+          - link "Astro Contributors" [ref=e300] [cursor=pointer]:
+            - /url: https://github.com/withastro/astro/graphs/contributors
+        - generic [ref=e301]:
+          - link "Follow Astro on Bluesky" [ref=e302] [cursor=pointer]:
+            - /url: https://bsky.app/profile/astro.build
+            - generic [ref=e303]: Follow Astro on Bluesky
+            - img [ref=e304]
+          - link "Join the Astro community on Discord" [ref=e306] [cursor=pointer]:
+            - /url: /chat
+            - generic [ref=e307]: Join the Astro community on Discord
+            - img [ref=e308]
+          - link "Go to Astro's GitHub repo" [ref=e310] [cursor=pointer]:
+            - /url: https://github.com/withastro/astro
+            - generic [ref=e311]: Go to Astro's GitHub repo
+            - img [ref=e312]
+          - link "Follow Astro on LinkedIn" [ref=e314] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/withastro
+            - generic [ref=e315]: Follow Astro on LinkedIn
+            - img [ref=e316]
+          - link "Follow Astro on Mastodon" [ref=e318] [cursor=pointer]:
+            - /url: https://m.webtoo.ls/@astro
+            - generic [ref=e319]: Follow Astro on Mastodon
+            - img [ref=e320]
+          - link "Join the official Astro community on Reddit" [ref=e322] [cursor=pointer]:
+            - /url: https://www.reddit.com/r/withastro/
+            - generic [ref=e323]: Join the official Astro community on Reddit
+            - img [ref=e324]
+          - link "Follow Astro on x.com (formerly Twitter)" [ref=e326] [cursor=pointer]:
+            - /url: https://x.com/astrodotbuild
+            - generic [ref=e327]: Follow Astro on x.com (formerly Twitter)
+            - img [ref=e328]
+          - link "Follow Astro on YouTube" [ref=e330] [cursor=pointer]:
+            - /url: https://www.youtube.com/@astrodotbuild
+            - generic [ref=e331]: Follow Astro on YouTube
+            - img [ref=e332]
+```

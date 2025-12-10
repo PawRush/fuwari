@@ -1,0 +1,99 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#_top"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e7]:
+          - link "Astro" [ref=e8] [cursor=pointer]:
+            - /url: https://astro.build/
+            - img [ref=e9]
+          - link "Docs" [ref=e12] [cursor=pointer]:
+            - /url: /en/getting-started/
+            - img [ref=e13]
+        - button "Search" [ref=e17] [cursor=pointer]:
+          - generic [ref=e18]:
+            - img [ref=e19]
+            - generic [ref=e21]: Search
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - link "GitHub" [ref=e25] [cursor=pointer]:
+              - /url: https://github.com/withastro/astro
+              - generic [ref=e26]: GitHub
+              - img [ref=e27]
+            - link "Discord" [ref=e29] [cursor=pointer]:
+              - /url: https://astro.build/chat
+              - generic [ref=e30]: Discord
+              - img [ref=e31]
+          - generic [ref=e34]:
+            - generic [ref=e35]: Select theme
+            - img
+            - combobox "Select theme" [ref=e36] [cursor=pointer]:
+              - option "Dark"
+              - option "Light"
+              - option "Auto" [selected]
+            - img
+          - generic [ref=e38]:
+            - generic [ref=e39]: Select language
+            - img
+            - combobox "Select language" [ref=e40] [cursor=pointer]:
+              - option "English" [selected]
+              - option "Deutsch"
+              - option "Português do Brasil"
+              - option "Español"
+              - option "简体中文"
+              - option "正體中文"
+              - option "Français"
+              - option "हिन्दी"
+              - option "العربية"
+              - option "日本語"
+              - option "한국어"
+              - option "Polski"
+              - option "Русский"
+              - option "Italiano"
+            - img
+    - main [ref=e44]:
+      - generic [ref=e46]:
+        - generic [ref=e49]:
+          - heading "404" [level=1] [ref=e50]
+          - paragraph [ref=e51]: This page isn’t in our solar system.
+          - link "Take me home." [ref=e52] [cursor=pointer]:
+            - /url: /en/
+        - complementary "Learn Astro with James Q Quick" [ref=e55]:
+          - img "Scrimba" [ref=e57]
+          - heading "Learn Astro with James Q Quick" [level=2] [ref=e58]:
+            - strong [ref=e59]: Learn Astro
+            - text: with James Q Quick
+          - paragraph [ref=e60]: Build your first site with 35 interactive Scrimba lessons
+          - link "Get 20% off" [ref=e61] [cursor=pointer]:
+            - /url: https://scrimba.com/intro-to-astro-c00ar0fi5u?via=astro
+        - generic [ref=e63]:
+          - link "Contribute" [ref=e64] [cursor=pointer]:
+            - /url: /en/contribute/
+            - img [ref=e65]
+            - text: Contribute
+          - link "Community" [ref=e68] [cursor=pointer]:
+            - /url: https://astro.build/chat
+            - img [ref=e69]
+            - text: Community
+          - link "Sponsor" [ref=e71] [cursor=pointer]:
+            - /url: https://opencollective.com/astrodotbuild
+            - img [ref=e72]
+            - text: Sponsor
+  - generic [ref=e76]:
+    - button "Menu" [ref=e77]:
+      - img [ref=e79]
+      - generic: Menu
+    - button "Inspect" [ref=e83]:
+      - img [ref=e85]
+      - generic: Inspect
+    - button "Audit" [ref=e87]:
+      - img [ref=e89]
+      - generic: Audit
+    - button "Settings" [ref=e92]:
+      - img [ref=e94]
+      - generic: Settings
+```

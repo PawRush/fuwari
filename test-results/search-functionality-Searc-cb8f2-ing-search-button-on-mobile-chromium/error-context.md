@@ -1,0 +1,187 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#_top"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e7]:
+          - link "Astro" [ref=e8] [cursor=pointer]:
+            - /url: https://astro.build/
+            - img [ref=e9]
+          - link "Docs" [ref=e12] [cursor=pointer]:
+            - /url: /en/getting-started/
+            - img [ref=e13]
+        - button "Search" [ref=e17] [cursor=pointer]:
+          - img [ref=e19]
+    - navigation "Main":
+      - button "Menu" [ref=e21] [cursor=pointer]:
+        - img [ref=e22]
+      - option "Dark"
+      - option "Light"
+      - option "Auto" [selected]
+      - option "English" [selected]
+      - option "Deutsch"
+      - option "Português do Brasil"
+      - option "Español"
+      - option "简体中文"
+      - option "正體中文"
+      - option "Français"
+      - option "हिन्दी"
+      - option "العربية"
+      - option "日本語"
+      - option "한국어"
+      - option "Polski"
+      - option "Русский"
+      - option "Italiano"
+    - main [ref=e27]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - heading "Astro Docs" [level=1] [ref=e34]
+              - paragraph [ref=e35]: Guides, resources, and API references to help you build with Astro.
+            - generic [ref=e36]:
+              - link "Install Astro" [ref=e37] [cursor=pointer]:
+                - /url: /en/install-and-setup/
+                - text: Install Astro
+                - img [ref=e38]
+              - link "Learn about Astro’s features" [ref=e41] [cursor=pointer]:
+                - /url: /en/concepts/why-astro/
+                - text: Learn about Astro’s features
+                - img [ref=e42]
+          - paragraph [ref=e45]:
+            - text: Powered by Astro and our open-source contributors.
+            - link "Join us!" [ref=e46] [cursor=pointer]:
+              - /url: /en/contribute/
+          - paragraph [ref=e47]:
+            - text: Powered by Astro and our open-source contributors.
+            - link "Join us!" [ref=e48] [cursor=pointer]:
+              - /url: /en/contribute/
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - article [ref=e52]:
+              - paragraph [ref=e53]:
+                - img [ref=e54]
+                - generic [ref=e56]: What will you build with Astro?
+              - paragraph [ref=e58]:
+                - text: Explore
+                - link "Astro starter themes" [ref=e59] [cursor=pointer]:
+                  - /url: https://astro.build/themes/
+                - text: for blogs, portfolios, docs, landing pages, SaaS, marketing, ecommerce sites, and more!
+            - article [ref=e61]:
+              - paragraph [ref=e62]:
+                - img [ref=e63]
+                - generic [ref=e65]: Take a guided tour
+              - paragraph [ref=e67]:
+                - text: Complete our introductory
+                - link "Build a Blog Tutorial" [ref=e68] [cursor=pointer]:
+                  - /url: /en/tutorial/0-introduction/
+                - text: to learn the basics and create your first Astro site.
+            - article [ref=e70]:
+              - paragraph [ref=e71]:
+                - img [ref=e72]
+                - generic [ref=e75]: Start a new project
+              - generic [ref=e77]:
+                - figure "Terminal window" [ref=e79]:
+                  - generic [ref=e82]: Terminal window
+                  - region [ref=e83]:
+                    - code [ref=e84]:
+                      - generic [ref=e86]: "# create a new project with npm"
+                      - generic [ref=e88]: npm create astro@latest
+                  - button "Copy to clipboard" [ref=e90] [cursor=pointer]
+                - paragraph [ref=e92]:
+                  - text: Our
+                  - link "installation guide" [ref=e93] [cursor=pointer]:
+                    - /url: /en/install-and-setup/
+                  - text: has step-by-step instructions for installing Astro using our CLI wizard, creating a new project from an existing Astro GitHub repository, and for installing Astro manually.
+            - article [ref=e95]:
+              - paragraph [ref=e96]:
+                - img [ref=e97]
+                - generic [ref=e99]: Learn
+              - list [ref=e102]:
+                - listitem [ref=e103]:
+                  - link "Astro’s main features" [ref=e104] [cursor=pointer]:
+                    - /url: /en/concepts/why-astro/
+                - listitem [ref=e105]:
+                  - link "Islands architecture" [ref=e106] [cursor=pointer]:
+                    - /url: /en/concepts/islands/
+                - listitem [ref=e107]:
+                  - link "Astro components" [ref=e108] [cursor=pointer]:
+                    - /url: /en/basics/astro-components/
+                - listitem [ref=e109]:
+                  - link "The Astro template syntax" [ref=e110] [cursor=pointer]:
+                    - /url: /en/reference/astro-syntax/
+            - article [ref=e112]:
+              - paragraph [ref=e113]:
+                - img [ref=e114]
+                - generic [ref=e116]: Extend
+              - list [ref=e119]:
+                - listitem [ref=e120]:
+                  - link "Add integrations like React and Partytown" [ref=e121] [cursor=pointer]:
+                    - /url: /en/guides/integrations-guide/
+                - listitem [ref=e122]:
+                  - link "Create type safe content collections" [ref=e123] [cursor=pointer]:
+                    - /url: /en/guides/content-collections/
+                - listitem [ref=e124]:
+                  - link "Enhance navigation with view transitions" [ref=e125] [cursor=pointer]:
+                    - /url: /en/guides/view-transitions/
+                - listitem [ref=e126]:
+                  - link "Connect a headless CMS to your project" [ref=e127] [cursor=pointer]:
+                    - /url: /en/guides/cms/
+          - generic [ref=e128]:
+            - heading "Have a question or want to get involved?" [level=2] [ref=e129]
+            - link "Join our Discord" [ref=e131] [cursor=pointer]:
+              - /url: https://astro.build/chat
+        - complementary "Learn Astro with James Q Quick" [ref=e134]:
+          - img "Scrimba" [ref=e136]
+          - heading "Learn Astro with James Q Quick" [level=2] [ref=e137]:
+            - strong [ref=e138]: Learn Astro
+            - text: with James Q Quick
+          - paragraph [ref=e139]: Build your first site with 35 interactive Scrimba lessons
+          - link "Get 20% off" [ref=e140] [cursor=pointer]:
+            - /url: https://scrimba.com/intro-to-astro-c00ar0fi5u?via=astro
+        - generic [ref=e142]:
+          - link "Contribute" [ref=e143] [cursor=pointer]:
+            - /url: /en/contribute/
+            - img [ref=e144]
+            - text: Contribute
+          - link "Community" [ref=e147] [cursor=pointer]:
+            - /url: https://astro.build/chat
+            - img [ref=e148]
+            - text: Community
+          - link "Sponsor" [ref=e150] [cursor=pointer]:
+            - /url: https://opencollective.com/astrodotbuild
+            - img [ref=e151]
+            - text: Sponsor
+  - generic [ref=e155]:
+    - button "Menu" [ref=e156]:
+      - img [ref=e158]
+      - generic: Menu
+    - button "Inspect" [ref=e162]:
+      - img [ref=e164]
+      - generic: Inspect
+    - button "Audit" [ref=e166]:
+      - generic [ref=e167]:
+        - img [ref=e168]
+        - img [ref=e171]
+      - generic: Audit
+    - button "Settings" [ref=e174]:
+      - img [ref=e176]
+      - generic: Settings
+  - button [expanded] [ref=e179]:
+    - generic [ref=e180]:
+      - banner [ref=e181]:
+        - generic [ref=e182]:
+          - img [ref=e184]
+          - searchbox [active] [ref=e186]
+        - button "Cancel" [ref=e187] [cursor=pointer]
+      - paragraph [ref=e190]: No recent searches
+      - contentinfo [ref=e191]:
+        - link "Search by Algolia" [ref=e193] [cursor=pointer]:
+          - /url: https://www.algolia.com/ref/docsearch/?utm_source=localhost&utm_medium=referral&utm_content=powered_by&utm_campaign=docsearch
+          - generic [ref=e194]: Search by
+          - img "Algolia" [ref=e195]
+```
