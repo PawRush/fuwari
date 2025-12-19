@@ -43,12 +43,13 @@ npx cdk bootstrap --progress events
 echo "Deploying CDK stacks for environment: $ENVIRONMENT..."
 
 # Build deploy command
-DEPLOY_CMD=(npx cdk deploy --all --context "environment=$ENVIRONMENT" --require-approval never --progress events)
+DEPLOY_CMD=(npx cdk deploy --all --context "environment=$ENVIRONMENT")
 
-# Add withAssets=false if needed
-if [ "$WITH_ASSETS" = "false" ]; then
-    DEPLOY_CMD+=(--context withAssets=false)
-fi
+# Add withAssets context
+DEPLOY_CMD+=(--context "withAssets=$WITH_ASSETS")
+
+# Add deployment options
+DEPLOY_CMD+=(--require-approval never --progress events)
 
 # Add hotswap for preview environments only
 if [[ "$ENVIRONMENT" == "preview-"* ]]; then
