@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install -g pnpm
+      - pnpm install --frozen-lockfile
+
+  build:
+    commands:
+      - echo "Running linting checks..."
+      - pnpm lint
+      - echo "Running type checks..."
+      - pnpm type-check
+
+artifacts:
+  files:
+    - '**/*'
+  name: LintTypeOutput

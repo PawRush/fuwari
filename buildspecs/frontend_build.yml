@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install -g pnpm
+      - pnpm install --frozen-lockfile
+
+  build:
+    commands:
+      - echo "Building frontend..."
+      - pnpm run build
+      - echo "Frontend build complete. Output directory: dist/"
+
+artifacts:
+  files:
+    - dist/**/*
+  name: FrontendBuildOutput
+  discard-paths: yes

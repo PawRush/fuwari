@@ -1,0 +1,43 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install -g pnpm
+      - (cd infra && pnpm install --frozen-lockfile)
+
+  build:
+    commands:
+      - echo "Copying frontend build artifacts..."
+      - cp -r $CODEBUILD_SRC_DIR_FrontendBuildOutput/* dist/ || true
+      - echo "Building CDK infrastructure..."
+      - (cd infra && pnpm run build)
+      - echo "Deploying frontend stack to $ENVIRONMENT..."
+      - |
+        (cd infra && npx cdk deploy FuwariFrontend-$ENVIRONMENT \
+          --context environment=$ENVIRONMENT \
+          --context withAssets=false \
+          --require-approval never \
+          --progress events)
+      - echo "Getting S3 bucket and CloudFront distribution..."
+      - |
+        BUCKET=$(aws cloudformation describe-stacks \
+          --stack-name FuwariFrontend-$ENVIRONMENT \
+          --query 'Stacks[0].Outputs[?OutputKey==`BucketName`].OutputValue' \
+          --output text)
+      - |
+        DIST_ID=$(aws cloudformation describe-stacks \
+          --stack-name FuwariFrontend-$ENVIRONMENT \
+          --query 'Stacks[0].Outputs[?OutputKey==`DistributionId`].OutputValue' \
+          --output text)
+      - echo "Syncing frontend to S3:$BUCKET..."
+      - aws s3 sync dist/ s3://$BUCKET/ --delete --cache-control "max-age=3600"
+      - echo "Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation --distribution-id $DIST_ID --paths "/*"
+      - echo "Frontend deployment complete"
+
+artifacts:
+  files:
+    - frontend-outputs.env
+  name: FrontendDeployOutput
