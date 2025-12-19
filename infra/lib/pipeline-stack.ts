@@ -21,7 +21,7 @@ export class PipelineStack extends cdk.Stack {
     super(scope, id, props);
 
     // Create artifacts bucket
-    this.artifactsBucket = new ArtifactsBucket(this, "ArtifactsBucket").bucket;
+    this.artifactsBucket = new ArtifactsBucket(this, "Artifacts").bucket;
 
     // Create SNS topic for notifications
     const notificationTopic = new sns.Topic(this, "PipelineNotifications", {
