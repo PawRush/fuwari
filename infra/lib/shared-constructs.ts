@@ -136,6 +136,18 @@ export class CodeBuildRole extends Construct {
           resources: ["arn:aws:s3:::cdk-*", "arn:aws:s3:::cdk-*/*"],
         }),
       );
+
+      // SSM for CDK bootstrap version check
+      this.role.addToPrincipalPolicy(
+        new iam.PolicyStatement({
+          effect: iam.Effect.ALLOW,
+          actions: [
+            "ssm:GetParameter",
+            "ssm:PutParameter",
+          ],
+          resources: ["arn:aws:ssm:*:*:parameter/cdk-bootstrap/*"],
+        }),
+      );
     }
 
     // Add additional policies if provided
