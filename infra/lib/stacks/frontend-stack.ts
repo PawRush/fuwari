@@ -22,21 +22,27 @@ export class FrontendStack extends cdk.Stack {
     // Persisting production buckets for safety and compliance reasons
     const removalPolicy = isProd ? cdk.RemovalPolicy.RETAIN : cdk.RemovalPolicy.DESTROY;
 
+    // Generate unique bucket names using timestamp
+    const timestamp = Date.now();
+    const contentBucketName = `${id.toLowerCase()}-${this.account}-${timestamp}`;
+    const s3LogsBucketName = `${id.toLowerCase()}-s3logs-${this.account}-${timestamp}`;
+    const cfLogsBucketName = `${id.toLowerCase()}-cflogs-${this.account}-${timestamp}`;
+
     // Provisions an Amazon CloudFront Distribution that serves objects from an AWS S3 Bucket via an Origin Access Control (OAC).
     // For more information, see https://docs.aws.amazon.com/solutions/latest/constructs/aws_cloudfront_s3.html
     const cloudfrontToS3 = new CloudFrontToS3(this, "CloudFrontToS3", {
       // S3 content bucket configuration
       bucketProps: {
-        bucketName: `${id.toLowerCase()}-${this.account}`,
+        bucketName: contentBucketName,
         removalPolicy,
-        autoDeleteObjects: !isProd, // Only auto-delete in non-prod (required for DESTROY to work on non-empty buckets)
+        autoDeleteObjects: false, // Disable auto-delete to avoid Lambda permission issues
         versioned: false,
       },
       // S3 access logging bucket configuration
       loggingBucketProps: {
-        bucketName: `${id.toLowerCase()}-s3logs-${this.account}`,
+        bucketName: s3LogsBucketName,
         removalPolicy,
-        autoDeleteObjects: !isProd,
+        autoDeleteObjects: false,
         lifecycleRules: [
           {
             id: "DeleteOldLogs",
@@ -47,9 +53,9 @@ export class FrontendStack extends cdk.Stack {
       },
       // CloudFront logging bucket configuration
       cloudFrontLoggingBucketProps: {
-        bucketName: `${id.toLowerCase()}-cflogs-${this.account}`,
+        bucketName: cfLogsBucketName,
         removalPolicy,
-        autoDeleteObjects: !isProd,
+        autoDeleteObjects: false,
         lifecycleRules: [
           {
             id: "DeleteOldLogs",
