@@ -48,6 +48,17 @@ export class PipelineStack extends cdk.Stack {
           ],
           resources: ["*"],
         }),
+        new iam.PolicyStatement({
+          effect: iam.Effect.ALLOW,
+          actions: [
+            "iam:CreateRole",
+            "iam:GetRole",
+            "iam:PutRolePolicy",
+            "iam:AttachRolePolicy",
+            "iam:PassRole",
+          ],
+          resources: ["arn:aws:iam::*:role/FuwariBuildPipeline-*"],
+        }),
       ],
     });
 
@@ -69,6 +80,21 @@ export class PipelineStack extends cdk.Stack {
           resources: [
             "arn:aws:s3:::*-frontend-*",
             "arn:aws:s3:::*-frontend-*/*",
+          ],
+        }),
+        new iam.PolicyStatement({
+          effect: iam.Effect.ALLOW,
+          actions: [
+            "s3:ListBucket",
+            "s3:GetBucketVersioning",
+            "s3:PutBucketVersioning",
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:GetBucketLocation",
+          ],
+          resources: [
+            "arn:aws:s3:::cdk-hnb659fds-assets-*",
+            "arn:aws:s3:::cdk-hnb659fds-assets-*/*",
           ],
         }),
         new iam.PolicyStatement({
