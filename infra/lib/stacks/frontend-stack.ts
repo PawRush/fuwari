@@ -35,7 +35,7 @@ export class FrontendStack extends cdk.Stack {
       bucketProps: {
         bucketName: contentBucketName,
         removalPolicy,
-        autoDeleteObjects: false, // Disable auto-delete to avoid Lambda permission issues
+        autoDeleteObjects: false,
         versioned: false,
       },
       // S3 access logging bucket configuration
@@ -63,31 +63,6 @@ export class FrontendStack extends cdk.Stack {
             expiration: isProd ? cdk.Duration.days(3650) : cdk.Duration.days(7),
           },
         ],
-      },
-      insertHttpSecurityHeaders: false,
-      // Security headers
-      responseHeadersPolicyProps: {
-        securityHeadersBehavior: {
-          contentTypeOptions: { override: true },
-          frameOptions: {
-            frameOption: cloudfront.HeadersFrameOption.DENY,
-            override: true,
-          },
-          strictTransportSecurity: {
-            accessControlMaxAge: cdk.Duration.seconds(47304000),
-            includeSubdomains: true,
-            override: true,
-          },
-        },
-        customHeadersBehavior: {
-          customHeaders: [
-            {
-              header: "Cache-Control",
-              value: "no-store, no-cache",
-              override: true,
-            },
-          ],
-        },
       },
       // CloudFront distribution configuration
       cloudFrontDistributionProps: {
