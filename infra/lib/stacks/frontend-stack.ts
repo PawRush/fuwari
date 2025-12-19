@@ -25,10 +25,9 @@ export class FrontendStack extends cdk.Stack {
     // Generate unique bucket names using timestamp
     const timestamp = Date.now();
     const contentBucketName = `${id.toLowerCase()}-${this.account}-${timestamp}`;
-    const s3LogsBucketName = `${id.toLowerCase()}-s3logs-${this.account}-${timestamp}`;
-    const cfLogsBucketName = `${id.toLowerCase()}-cflogs-${this.account}-${timestamp}`;
 
     // Provisions an Amazon CloudFront Distribution that serves objects from an AWS S3 Bucket via an Origin Access Control (OAC).
+    // Simplified configuration to avoid Response Headers Policy limits
     // For more information, see https://docs.aws.amazon.com/solutions/latest/constructs/aws_cloudfront_s3.html
     const cloudfrontToS3 = new CloudFrontToS3(this, "CloudFrontToS3", {
       // S3 content bucket configuration
@@ -38,32 +37,7 @@ export class FrontendStack extends cdk.Stack {
         autoDeleteObjects: false,
         versioned: false,
       },
-      // S3 access logging bucket configuration
-      loggingBucketProps: {
-        bucketName: s3LogsBucketName,
-        removalPolicy,
-        autoDeleteObjects: false,
-        lifecycleRules: [
-          {
-            id: "DeleteOldLogs",
-            enabled: true,
-            expiration: isProd ? cdk.Duration.days(3650) : cdk.Duration.days(7),
-          },
-        ],
-      },
-      // CloudFront logging bucket configuration
-      cloudFrontLoggingBucketProps: {
-        bucketName: cfLogsBucketName,
-        removalPolicy,
-        autoDeleteObjects: false,
-        lifecycleRules: [
-          {
-            id: "DeleteOldLogs",
-            enabled: true,
-            expiration: isProd ? cdk.Duration.days(3650) : cdk.Duration.days(7),
-          },
-        ],
-      },
+      insertHttpSecurityHeaders: false,
       // CloudFront distribution configuration
       cloudFrontDistributionProps: {
         comment: `${id} - ${environment}`,
@@ -82,7 +56,7 @@ export class FrontendStack extends cdk.Stack {
             ttl: cdk.Duration.minutes(5),
           },
         ],
-        priceClass: cloudfront.PriceClass.PRICE_CLASS_100, // US, Canada, Europe
+        priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
         enableIpv6: true,
         httpVersion: cloudfront.HttpVersion.HTTP2_AND_3,
         minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
@@ -100,7 +74,7 @@ export class FrontendStack extends cdk.Stack {
         destinationBucket: websiteBucket,
         distribution,
         distributionPaths: ["/*"],
-        prune: true, // Remove old files
+        prune: true,
         memoryLimit: 512,
       });
     }
@@ -133,22 +107,6 @@ export class FrontendStack extends cdk.Stack {
       description: "CloudFront domain name",
       exportName: `${id}-DistributionDomain`,
     });
-
-    if (cloudfrontToS3.s3LoggingBucket) {
-      new cdk.CfnOutput(this, "S3LogBucketName", {
-        value: cloudfrontToS3.s3LoggingBucket.bucketName,
-        description: "Bucket for S3 access logs",
-        exportName: `${id}-S3LogBucket`,
-      });
-    }
-
-    if (cloudfrontToS3.cloudFrontLoggingBucket) {
-      new cdk.CfnOutput(this, "CloudFrontLogBucketName", {
-        value: cloudfrontToS3.cloudFrontLoggingBucket.bucketName,
-        description: "Bucket for CloudFront access logs",
-        exportName: `${id}-CloudFrontLogBucket`,
-      });
-    }
 
     cdk.Tags.of(this).add("Stack", "Frontend");
     cdk.Tags.of(this).add("aws-mcp:deploy:type", "webapp-cloudfront");
