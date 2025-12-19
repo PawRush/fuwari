@@ -1,0 +1,10 @@
+Starting AWS CDK deployment to environment: preview-jairosp
+Asset deployment: true
+Building frontend...
+
+> fuwari@0.0.1 build
+> astro build && pagefind --site dist
+
+Node.js v18.20.5 is not supported by Astro!
+Please upgrade Node.js to a supported version: ">=18.20.8"
+

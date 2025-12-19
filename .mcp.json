@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aws-tasks-mcp-server": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/local/home/jairosp/Deploy2AWS/src/AWSTasksMCP",
+        "run",
+        "aws.aws-tasks-mcp-server"
+      ],
+      "env": {
+        "AWS_REGION": "us-east-1",
+        "AGENT_SCRIPTS_DIR": "/local/home/jairosp/Deploy2AWS/src/AWSDeployAgentScripts/scripts/preprod"
+      }
+    }
+  }
+}
