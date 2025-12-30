@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  variables:
+    NPM_CONFIG_PRODUCTION: "false"
+    DISABLE_ESLINT_PLUGIN: "true"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Installing pnpm..."
+      - npm install -g pnpm@9.14.4
+      - echo "Installing dependencies..."
+      - pnpm install --frozen-lockfile
+  build:
+    commands:
+      - echo "Building frontend..."
+      - pnpm run build
+      - echo "Frontend build completed successfully"
+      - ls -la dist/
+
+artifacts:
+  files:
+    - "dist/**/*"
+  name: FrontendBuildOutput
+
+cache:
+  paths:
+    - "~/.pnpm-store/**/*"

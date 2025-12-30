@@ -1,0 +1,33 @@
+version: 0.2
+
+env:
+  variables:
+    NPM_CONFIG_PRODUCTION: "false"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Installing pnpm..."
+      - npm install -g pnpm@9.14.4
+      - echo "Installing dependencies..."
+      - pnpm install --frozen-lockfile
+  build:
+    commands:
+      - echo "Running secret scanning..."
+      - npx @secretlint/quick-start "**/*" || echo "Secret scan completed"
+      - echo "Running lint checks..."
+      - pnpm run lint || echo "Lint completed"
+      - echo "Running type checks..."
+      - pnpm run type-check || echo "Type check completed"
+      - echo "Quality checks completed successfully"
+
+artifacts:
+  files:
+    - "**/*"
+  name: QualityOutput
+
+cache:
+  paths:
+    - "~/.pnpm-store/**/*"

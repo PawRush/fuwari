@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "aws-tasks-mcp-server": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Volumes/workplace/AWSTasksMCP",
+        "run",
+        "aws.aws-tasks-mcp-server"
+      ],
+      "env": {
+        "AWS_REGION": "us-east-1",
+        "AGENT_SCRIPTS_DIR": "/Volumes/workplace/AWSDeployAgentScripts/scripts/preprod"
+      }
+    }
+  }
+}

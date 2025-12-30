@@ -179,3 +179,43 @@ Completed: Full deployment (Phase 1 and Phase 2)
 Status: ✅ Complete
 Notes: Clean Astro static site build, no backend dependencies detected
 ```
+
+### Session 2 - 2025-12-30T17:30:00Z
+```
+Agent: Claude (Sonnet 4.5)
+Task: Setup AWS CodePipeline for automated deployments
+Status: ➡️ In Progress
+Current Step: Creating CDK pipeline stack
+```
+
+---
+
+## 🔄 CI/CD Pipeline Deployment (In Progress)
+
+### Pipeline Configuration
+
+```
+Status: ➡️ In Progress
+Repository: PawRush/fuwari
+Branch: deploy-to-aws
+CodeConnection ARN: arn:aws:codeconnections:us-east-1:644722646588:connection/4376c89e-c7b1-40df-9e0d-ecc34457b801
+Pipeline Stack: FuwariPipelineStack
+```
+
+### Pipeline Stages
+
+- **Source**: Pull code from GitHub (deploy-to-aws branch)
+- **Quality**: Lint (biome), Type-check (TypeScript), Secret scanning
+- **Build**: Frontend build (Astro + pagefind → dist/)
+- **Deploy**: Deploy to production (FuwariFrontendStack-prod)
+
+### Pipeline Tasks
+
+- 🕣 1. Update infra/bin/infra.ts for pipeline support
+- 🕣 2. Create shared-constructs.ts (CodeBuildRole, ArtifactsBucket)
+- 🕣 3. Create pipeline-stack.ts
+- 🕣 4. Create buildspec files
+- 🕣 5. Push branch to remote
+- 🕣 6. Deploy pipeline stack
+- 🕣 7. Bootstrap CDK with pipeline trust
+- 🕣 8. Trigger pipeline
