@@ -49,6 +49,19 @@ A static blog template built with [Astro](https://astro.build).
 4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
 5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
 
+## 🚀 AWS Deployment
+
+This blog is deployed to AWS using CloudFront and S3:
+
+**Live URL:** https://d2lj8todn54d6y.cloudfront.net
+
+To deploy updates:
+```bash
+./scripts/deploy.sh
+```
+
+For full deployment details, architecture, and troubleshooting, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## 📝 Frontmatter of Posts
 
 ```yaml
