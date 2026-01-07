@@ -29,3 +29,7 @@ yarn.lock
 # ide
 .idea
 *.iml
+
+# playwright
+test-results/
+playwright-report/
