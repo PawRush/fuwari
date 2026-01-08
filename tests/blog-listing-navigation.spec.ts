@@ -9,11 +9,11 @@ test.describe('Blog Post Listing and Navigation', () => {
 
     // Check if the page has blog posts
     const postElements = page.locator('article, .post-card, [class*="post"]').first();
-    await expect(postElements).toBeVisible({ timeout: 10000 });
+    await expect(postElements).toBeVisible({ timeout: 15000 });
 
     // Check for post titles - they should be links
     const postTitles = page.locator('a:has-text("Markdown"), a:has-text("Guide"), a:has-text("Post")');
-    await expect(postTitles.first()).toBeVisible();
+    await expect(postTitles.first()).toBeVisible({ timeout: 10000 });
   });
 
   test('should navigate to a blog post', async ({ page }) => {
@@ -23,20 +23,20 @@ test.describe('Blog Post Listing and Navigation', () => {
     // Find and click the first blog post link
     // Look for links in articles or with certain patterns
     const firstPostLink = page.locator('article a, a[href*="/posts/"]').first();
-    await expect(firstPostLink).toBeVisible({ timeout: 10000 });
+    await expect(firstPostLink).toBeVisible({ timeout: 15000 });
 
     // Get the href before clicking
     const href = await firstPostLink.getAttribute('href');
 
     await firstPostLink.click();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Verify we're on a post page
     expect(page.url()).toContain('/posts/');
 
     // Check for post content elements
     const postContent = page.locator('article, main, .prose, [class*="content"]');
-    await expect(postContent.first()).toBeVisible();
+    await expect(postContent.first()).toBeVisible({ timeout: 10000 });
   });
 
   test('should display pagination if available', async ({ page }) => {
@@ -52,7 +52,7 @@ test.describe('Blog Post Listing and Navigation', () => {
     }
   });
 
-  test('should navigate back from post to listing', async ({ page }) => {
+  test('should navigate back from post to listing', async ({ page, baseURL }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
@@ -66,7 +66,8 @@ test.describe('Blog Post Listing and Navigation', () => {
     await page.waitForLoadState('networkidle');
 
     // Should be back on the home page
-    expect(page.url()).toBe('http://localhost:4321/');
+    const expectedURL = baseURL?.endsWith('/') ? baseURL : `${baseURL}/`;
+    expect(page.url()).toBe(expectedURL);
   });
 
   test('should display post metadata', async ({ page }) => {

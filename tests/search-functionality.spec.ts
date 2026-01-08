@@ -44,8 +44,8 @@ test.describe('Search Functionality (Pagefind)', () => {
     await searchInput.fill('markdown');
     await searchInput.click(); // Focus to trigger search
 
-    // Wait a bit for search to process
-    await page.waitForTimeout(1000);
+    // Wait a bit for search to process (longer for remote deployments)
+    await page.waitForTimeout(2000);
 
     // Check if results panel appears
     const resultsPanel = page.locator('#search-panel, [class*="search-panel"]');
@@ -56,7 +56,7 @@ test.describe('Search Functionality (Pagefind)', () => {
     if (panelVisible) {
       // Check for search result items
       const searchResults = page.locator('#search-panel a, [class*="search-panel"] a').first();
-      await expect(searchResults).toBeVisible({ timeout: 5000 });
+      await expect(searchResults).toBeVisible({ timeout: 10000 });
     }
   });
 
@@ -67,7 +67,7 @@ test.describe('Search Functionality (Pagefind)', () => {
     await searchInput.fill('markdown');
     await searchInput.click();
 
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2000);
 
     // Check for highlighted terms (usually in <mark> tags)
     const highlightedTerms = page.locator('#search-panel mark, [class*="search-panel"] mark');
@@ -103,14 +103,14 @@ test.describe('Search Functionality (Pagefind)', () => {
     expect(isHidden).toBeTruthy();
   });
 
-  test('should navigate to post when clicking search result', async ({ page }) => {
+  test('should navigate to post when clicking search result', async ({ page, baseURL }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
 
     const searchInput = page.locator('#search-bar input').first();
     await searchInput.fill('markdown');
     await searchInput.click();
 
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2000);
 
     // Try to click first search result if visible
     const firstResult = page.locator('#search-panel a').first();
@@ -121,8 +121,9 @@ test.describe('Search Functionality (Pagefind)', () => {
       await firstResult.click();
       await page.waitForLoadState('networkidle');
 
-      // Should navigate to a page
-      expect(page.url()).not.toBe('http://localhost:4321/');
+      // Should navigate to a page (not the homepage)
+      const expectedHomeURL = baseURL?.endsWith('/') ? baseURL : `${baseURL}/`;
+      expect(page.url()).not.toBe(expectedHomeURL);
     }
   });
 
@@ -146,7 +147,7 @@ test.describe('Search Functionality (Pagefind)', () => {
     const searchInput = page.locator('#search-bar input').first();
     await searchInput.fill('xyzabc123nonexistent');
     await searchInput.click();
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2000);
 
     const searchPanel = page.locator('#search-panel');
     const links = await searchPanel.locator('a').count();

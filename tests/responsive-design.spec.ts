@@ -11,7 +11,7 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should load homepage on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 }); // iPhone 12
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     const content = page.locator('body');
     await expect(content).toBeVisible();
@@ -20,7 +20,7 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should have mobile-friendly navigation', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Look for hamburger menu or mobile navigation
     const mobileNav = page.locator(
@@ -41,7 +41,7 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should have mobile search functionality', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Look for search button (mobile version)
     const searchButton = page.locator(
@@ -58,7 +58,7 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should render blog posts in mobile layout', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Blog posts should be visible
     const posts = page.locator('article, .post-card, [class*="post"]');
@@ -68,14 +68,14 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should navigate to blog post from mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Find and tap on a post link
     const postLink = page.locator('a[href*="/posts/"]').first();
-    await expect(postLink).toBeVisible();
+    await expect(postLink).toBeVisible({ timeout: 15000 });
 
     await postLink.click();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Should navigate to post page
     expect(page.url()).toContain('/posts/');
@@ -84,11 +84,11 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should have readable text on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/posts/markdown/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check font size is reasonable for mobile
     const paragraph = page.locator('article p, main p').first();
-    await expect(paragraph).toBeVisible();
+    await expect(paragraph).toBeVisible({ timeout: 15000 });
 
     const fontSize = await paragraph.evaluate((el) => {
       return window.getComputedStyle(el).fontSize;
@@ -102,7 +102,7 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should not have horizontal scroll', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check if page has horizontal overflow
     const hasHorizontalScroll = await page.evaluate(() => {
@@ -115,11 +115,11 @@ test.describe('Responsive Design - Mobile Viewport', () => {
   test('should have mobile-optimized theme switcher', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Theme button should be accessible on mobile
     const themeButton = page.locator('#scheme-switch, button[aria-label*="theme" i]').first();
-    await expect(themeButton).toBeVisible();
+    await expect(themeButton).toBeVisible({ timeout: 15000 });
 
     // Should be clickable
     await themeButton.click();
@@ -140,7 +140,7 @@ test.describe('Responsive Design - Tablet Viewport', () => {
   test('should load homepage on tablet', async ({ page }) => {
     await page.setViewportSize({ width: 1024, height: 1366 }); // iPad Pro
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     const content = page.locator('body');
     await expect(content).toBeVisible();
@@ -149,7 +149,7 @@ test.describe('Responsive Design - Tablet Viewport', () => {
   test('should have appropriate layout on tablet', async ({ page }) => {
     await page.setViewportSize({ width: 1024, height: 1366 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check if layout is different from mobile (might show more columns)
     const posts = page.locator('article, .post-card, [class*="post"]');
@@ -159,12 +159,12 @@ test.describe('Responsive Design - Tablet Viewport', () => {
   test('should navigate properly on tablet', async ({ page }) => {
     await page.setViewportSize({ width: 1024, height: 1366 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Click on a post
     const postLink = page.locator('a[href*="/posts/"]').first();
     await postLink.click();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     expect(page.url()).toContain('/posts/');
   });
@@ -174,7 +174,7 @@ test.describe('Responsive Design - Desktop Viewport', () => {
   test('should load homepage on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     const content = page.locator('body');
     await expect(content).toBeVisible();
@@ -183,7 +183,7 @@ test.describe('Responsive Design - Desktop Viewport', () => {
   test('should have desktop navigation visible', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Desktop navigation should be visible without toggle
     const nav = page.locator('nav, header nav');
@@ -193,7 +193,7 @@ test.describe('Responsive Design - Desktop Viewport', () => {
   test('should have desktop search bar visible', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Desktop search should be visible
     const searchInput = page.locator('#search-bar input, input[placeholder*="search" i]');
@@ -207,7 +207,7 @@ test.describe('Responsive Design - Desktop Viewport', () => {
   test('should show theme panel on hover (desktop)', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Hover over theme button
     const themeButton = page.locator('#scheme-switch').first();
@@ -225,7 +225,7 @@ test.describe('Responsive Design - Desktop Viewport', () => {
   test('should have wider content area on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/posts/markdown/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Content should have max width but be wider than mobile
     const article = page.locator('article, main').first();
@@ -245,7 +245,7 @@ test.describe('Responsive Design - Viewport Transitions', () => {
     // Start with desktop size
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Resize to mobile
     await page.setViewportSize({ width: 375, height: 667 });
@@ -267,7 +267,7 @@ test.describe('Responsive Design - Viewport Transitions', () => {
     // Start with mobile size
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Resize to desktop
     await page.setViewportSize({ width: 1920, height: 1080 });
@@ -283,12 +283,12 @@ test.describe('Responsive Design - Touch Interactions', () => {
   test('should handle touch on links', async ({ page, browserName }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Tap on a link (use click for compatibility)
     const link = page.locator('a[href*="/posts/"]').first();
     await link.click();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     expect(page.url()).toContain('/posts/');
   });
@@ -296,7 +296,7 @@ test.describe('Responsive Design - Touch Interactions', () => {
   test('should handle touch on buttons', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Tap on theme button
     const themeButton = page.locator('#scheme-switch').first();
@@ -313,7 +313,7 @@ test.describe('Responsive Design - Accessibility', () => {
   test('should be keyboard navigable on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Press tab to navigate
     await page.keyboard.press('Tab');

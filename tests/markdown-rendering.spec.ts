@@ -10,7 +10,7 @@ test.describe('Markdown Rendering', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to a markdown post that has extended syntax examples
     await page.goto('/posts/markdown/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
   });
 
   test('should render basic markdown elements', async ({ page }) => {
@@ -135,17 +135,17 @@ test.describe('Markdown Rendering', () => {
   test('should test extended markdown on extended markdown page', async ({ page }) => {
     // Navigate to extended markdown examples if available
     await page.goto('/posts/markdown-extended/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check for page content
     const content = page.locator('article, main');
-    await expect(content.first()).toBeVisible({ timeout: 10000 });
+    await expect(content.first()).toBeVisible({ timeout: 15000 });
   });
 
   test('should render tables if present', async ({ page }) => {
     // Try extended markdown page
     await page.goto('/posts/markdown-extended/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check for tables
     const tables = page.locator('table');
@@ -167,7 +167,7 @@ test.describe('Markdown Rendering', () => {
   test('should render task lists if present', async ({ page }) => {
     // Try extended markdown page
     await page.goto('/posts/markdown-extended/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check for checkboxes (task lists)
     const checkboxes = page.locator('input[type="checkbox"]');
@@ -182,7 +182,7 @@ test.describe('Markdown Rendering', () => {
   test('should render admonitions/callouts if present', async ({ page }) => {
     // Try extended markdown page
     await page.goto('/posts/markdown-extended/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check for admonitions (note, tip, warning, etc.)
     const admonitions = page.locator(
@@ -198,7 +198,7 @@ test.describe('Markdown Rendering', () => {
   test('should handle footnotes if present', async ({ page }) => {
     // Try extended markdown page
     await page.goto('/posts/markdown-extended/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check for footnote references and definitions
     const footnoteRefs = page.locator('sup[id^="fnref"], a[href^="#fn"]');
@@ -213,7 +213,7 @@ test.describe('Markdown Rendering', () => {
   test('should render math/KaTeX if present', async ({ page }) => {
     // Try extended markdown page
     await page.goto('/posts/markdown-extended/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check for KaTeX elements
     const math = page.locator('.katex, .math, [class*="katex"]');
@@ -226,7 +226,7 @@ test.describe('Markdown Rendering', () => {
 
   test('should have anchor links on headings', async ({ page }) => {
     await page.goto('/posts/markdown/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check if headings have anchor links
     const headingAnchors = page.locator('h2 a.anchor, h3 a.anchor, h2 .anchor-icon, h3 .anchor-icon');
@@ -243,7 +243,7 @@ test.describe('Markdown Rendering', () => {
     const response = await page.goto('/posts/expressive-code/');
 
     if (response && response.ok()) {
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('networkidle', { timeout: 30000 });
 
       // Check for expressive code features
       const codeBlocks = page.locator('.expressive-code, pre');
