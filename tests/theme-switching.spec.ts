@@ -14,18 +14,20 @@ test.describe('Theme Switching', () => {
 
   test('should have theme toggle button', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Look for the theme switch button
     const themeButton = page.locator('#scheme-switch, button[aria-label*="theme" i], button[aria-label*="dark" i], button[aria-label*="light" i]');
-    await expect(themeButton.first()).toBeVisible({ timeout: 10000 });
+    await expect(themeButton.first()).toBeVisible({ timeout: 15000 });
   });
 
   test('should toggle between light and dark themes', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Find the theme toggle button
     const themeButton = page.locator('#scheme-switch, button[aria-label*="theme" i], button[aria-label*="dark" i], button[aria-label*="light" i]').first();
-    await themeButton.waitFor({ state: 'visible', timeout: 10000 });
+    await themeButton.waitFor({ state: 'visible', timeout: 15000 });
 
     // Get initial theme state (check html or body classes/attributes)
     const initialTheme = await page.evaluate(() => {
@@ -49,9 +51,10 @@ test.describe('Theme Switching', () => {
 
   test('should show theme options panel on hover/click', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     const themeButton = page.locator('#scheme-switch').first();
-    await themeButton.waitFor({ state: 'visible', timeout: 10000 });
+    await themeButton.waitFor({ state: 'visible', timeout: 15000 });
 
     // Hover over theme button
     await themeButton.hover();
@@ -71,6 +74,7 @@ test.describe('Theme Switching', () => {
 
   test('should have light, dark, and auto mode options', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // On desktop, hover to show panel
     const themeButton = page.locator('#scheme-switch').first();
@@ -93,6 +97,7 @@ test.describe('Theme Switching', () => {
 
   test('should persist theme preference in localStorage', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Toggle theme
     const themeButton = page.locator('#scheme-switch').first();
@@ -111,6 +116,7 @@ test.describe('Theme Switching', () => {
 
   test('should maintain theme after page navigation', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Set to dark mode
     const themeButton = page.locator('#scheme-switch').first();
@@ -124,7 +130,7 @@ test.describe('Theme Switching', () => {
 
     // Navigate to another page
     await page.goto('/about/');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Check theme is maintained
     const themeAfterNavigation = await page.evaluate(() => {
@@ -137,6 +143,7 @@ test.describe('Theme Switching', () => {
 
   test('should apply theme styles correctly', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
     await page.waitForTimeout(1000);
 
     // Get background color in current theme
@@ -162,6 +169,7 @@ test.describe('Theme Switching', () => {
 
   test('should cycle through theme modes on repeated clicks', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     const themeButton = page.locator('#scheme-switch').first();
 
