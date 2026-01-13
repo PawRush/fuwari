@@ -32,7 +32,7 @@ export class PipelineStack extends cdk.Stack {
         "corepack enable && corepack prepare pnpm@latest --activate",
         "pnpm install",
         "(cd infra && npm install)",
-        "pnpm run lint --if-present",
+        "pnpm run lint",
         "npx -y @secretlint/quick-start '**/*'",
         "pnpm run build",
         "cd infra",
