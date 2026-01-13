@@ -88,6 +88,16 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`           | Run CLI commands like `astro add`, `astro check`    |
 | `pnpm astro --help`        | Get help using the Astro CLI                        |
 
+## 🚀 Deployment
+
+**Preview URL:** https://dh5worxdjfqv2.cloudfront.net
+
+**Pipeline:** https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
+
+Deploy: `git push origin sergeyka-deploy-to-aws`
+
+Manual deploy: `./scripts/deploy.sh`
+
 ## ✏️ Contributing
 
 Check out the [Contributing Guide](https://github.com/saicaca/fuwari/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.
