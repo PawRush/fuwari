@@ -13,7 +13,9 @@
     "deploy:preview": "cdk deploy --all --require-approval never --progress events",
     "destroy": "cdk destroy --all",
     "synth": "cdk synth",
-    "diff": "cdk diff"
+    "diff": "cdk diff",
+    "deploy:pipeline": "cdk deploy FuwariPipelineStack --context codeConnectionArn=arn:aws:codeconnections:us-east-1:625164594347:connection/c03b07c4-94d8-4fb7-ba7a-309dcb77b4cc --context repositoryName=PawRush/fuwari --context branchName=sergeyka-deploy-to-aws --require-approval never --progress events",
+    "destroy:pipeline": "cdk destroy FuwariPipelineStack --context codeConnectionArn=arn:aws:codeconnections:us-east-1:625164594347:connection/c03b07c4-94d8-4fb7-ba7a-309dcb77b4cc"
   },
   "devDependencies": {
     "@types/jest": "^30",
