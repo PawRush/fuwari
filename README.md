@@ -49,6 +49,20 @@ A static blog template built with [Astro](https://astro.build).
 4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
 5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
 
+## 🔄 Deployment
+
+Deployed at: https://d251kbclep5val.cloudfront.net, using the [deploy-frontend-app] and [setup-pipeline] Agent Standard Operating Procedures from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+
+### Pipeline
+
+Pipeline: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
+
+Deploy: `git push origin deploy-to-aws`
+
+Manual deployment: `./scripts/deploy.sh`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+
 ## 📝 Frontmatter of Posts
 
 ```yaml
