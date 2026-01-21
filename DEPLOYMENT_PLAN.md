@@ -29,8 +29,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [...] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -51,12 +51,16 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ## Deployment Info
 
 - Framework: Astro (Static Site Generator)
-- Deployment URL: [after completion]
-- Stack name: [after creation]
-- Distribution ID: [after creation]
-- S3 Bucket: [after creation]
-- CloudFront Log Bucket: [after creation]
-- S3 Log Bucket: [after creation]
+- Deployment URL: https://d251kbclep5val.cloudfront.net
+- Stack name: FuwariFrontend-preview-sergeyka
+- Distribution ID: E3LQS03KJO580H
+- Distribution Domain: d251kbclep5val.cloudfront.net
+- S3 Bucket: fuwarifrontend-preview-serg-cftos3s3bucketcae9f2be-stqyw6arrkdx
+- CloudFront Log Bucket: fuwarifrontend-preview-se-cftos3cloudfrontloggingb-gvfeztwg5rlu
+- S3 Log Bucket: fuwarifrontend-preview-se-cftos3s3loggingbucket64b-2s3gusxaiklh
+- Deployment Timestamp: 2026-01-21T21:28:03Z
+- Stack Status: CREATE_COMPLETE
+- Distribution Status: Deployed
 
 ## Recovery Guide
 
