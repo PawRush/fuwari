@@ -51,14 +51,14 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
   - [x] 2.5: Use existing CodeConnection
 
 ## Pipeline Phase 2: Build and Deploy Pipeline
-- [ ] Step 3: Create CDK Pipeline Stack
-- [ ] Step 4: CDK Bootstrap
-- [ ] Step 5: Deploy Pipeline
-  - [ ] 5.1: Push to remote
-  - [ ] 5.2: Authorize CodeConnection (skip - already authorized)
-  - [ ] 5.3: Deploy pipeline stack
-  - [ ] 5.4: Trigger pipeline
-- [ ] Step 6: Monitor Pipeline
+- [x] Step 3: Create CDK Pipeline Stack
+- [x] Step 4: CDK Bootstrap (already completed)
+- [x] Step 5: Deploy Pipeline
+  - [x] 5.1: Push to remote
+  - [x] 5.2: Authorize CodeConnection (already authorized - AVAILABLE)
+  - [x] 5.3: Deploy pipeline stack
+  - [x] 5.4: Trigger pipeline (auto-triggered)
+- [x] Step 6: Monitor Pipeline
 
 ## Pipeline Phase 3: Documentation
 - [ ] Step 7: Finalize Deployment Plan
@@ -81,9 +81,13 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Repository: PawRush/fuwari
 - Branch: deploy-to-aws
 - CodeConnection ARN: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
-- Quality Checks: lint (biome check)
+- CodeConnection Status: AVAILABLE
+- Quality Checks: lint (biome check), secret scanning (@secretlint)
 - Pipeline Name: FuwariPipeline
 - Pipeline Stack: FuwariPipelineStack
+- Pipeline ARN: arn:aws:codepipeline:us-east-1:126593893432:FuwariPipeline
+- Pipeline Console: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
+- Deployment Status: First execution in progress
 
 ## Deployment Info
 
