@@ -5,7 +5,7 @@ app_name: Fuwari
 app_type: Frontend Application (Astro Static Site)
 branch: main
 created: 2026-01-21T21:12:00Z
-last_updated: 2026-01-21T21:12:00Z
+last_updated: 2026-01-21T21:17:00Z
 ---
 
 # Deployment Plan: Fuwari
@@ -16,10 +16,10 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
-- [...] Step 1: Create Deployment Plan
-- [ ] Step 2: Create Deploy Branch
-- [ ] Step 3: Detect Build Configuration
-- [ ] Step 4: Validate Prerequisites
+- [x] Step 1: Create Deployment Plan
+- [x] Step 2: Create Deploy Branch
+- [x] Step 3: Detect Build Configuration
+- [x] Step 4: Validate Prerequisites
 - [ ] Step 5: Revisit Deployment Plan
 
 ## Phase 2: Build CDK Infrastructure
@@ -35,6 +35,18 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
 - [ ] Step 13: Update README.md
+
+## Build Configuration
+
+- Framework: Astro (Static Site Generator)
+- Package Manager: pnpm (detected from pnpm-lock.yaml and packageManager field)
+- Build Command: pnpm run build
+- Output Directory: dist/
+- Base Path: / (root)
+- Trailing Slash: always (static multi-page with /path/index.html)
+- Entry Point: index.html
+- Lint Command: pnpm run lint
+- CloudFront Config: URL rewrite function (/path → /path/index.html)
 
 ## Deployment Info
 
@@ -58,7 +70,7 @@ cd infra && cdk destroy "<StackName>"
 
 ## Issues Encountered
 
-None.
+1. **CSS Build Error**: Fixed pre-existing build error in `markdown.css` where the `link` class from `main.css` wasn't accessible. Added `@import './main.css';` to `markdown.css` to resolve the issue.
 
 ## Session Log
 
