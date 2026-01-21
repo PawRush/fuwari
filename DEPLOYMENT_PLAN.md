@@ -36,6 +36,34 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [ ] Step 12: Finalize Deployment Plan
 - [ ] Step 13: Update README.md
 
+---
+
+# Pipeline Setup
+
+## Pipeline Phase 1: Gather Context and Configure
+- [x] Step 0: Inform User of Execution Flow
+- [x] Step 1: Create Deployment Plan (extending existing)
+- [x] Step 2: Detect Existing Infrastructure
+  - [x] 2.1: Detect stacks and frontend
+  - [x] 2.2: Detect app name and git repository
+  - [x] 2.3: Determine quality checks
+  - [x] 2.4: User confirmation
+  - [x] 2.5: Use existing CodeConnection
+
+## Pipeline Phase 2: Build and Deploy Pipeline
+- [ ] Step 3: Create CDK Pipeline Stack
+- [ ] Step 4: CDK Bootstrap
+- [ ] Step 5: Deploy Pipeline
+  - [ ] 5.1: Push to remote
+  - [ ] 5.2: Authorize CodeConnection (skip - already authorized)
+  - [ ] 5.3: Deploy pipeline stack
+  - [ ] 5.4: Trigger pipeline
+- [ ] Step 6: Monitor Pipeline
+
+## Pipeline Phase 3: Documentation
+- [ ] Step 7: Finalize Deployment Plan
+- [ ] Step 8: Update README.md
+
 ## Build Configuration
 
 - Framework: Astro (Static Site Generator)
@@ -47,6 +75,15 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Entry Point: index.html
 - Lint Command: pnpm run lint
 - CloudFront Config: URL rewrite function (/path → /path/index.html)
+
+## Pipeline Info
+
+- Repository: PawRush/fuwari
+- Branch: deploy-to-aws
+- CodeConnection ARN: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Quality Checks: lint (biome check)
+- Pipeline Name: FuwariPipeline
+- Pipeline Stack: FuwariPipelineStack
 
 ## Deployment Info
 
