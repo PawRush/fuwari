@@ -94,9 +94,13 @@ Check out the [Contributing Guide](https://github.com/saicaca/fuwari/blob/main/C
 
 ## Deployment
 
-Deployed at: https://d22m8a7o5lakbn.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+**Automated CI/CD:** Push to `deploy-to-aws-20260129_185538-sergeyka` triggers automatic deployment to AWS.
 
-Deployment command: `./scripts/deploy.sh`
+**Pipeline:** https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
+
+**Preview URL:** https://d22m8a7o5lakbn.cloudfront.net
+
+Created with the [deploy-frontend-app] and [setup-pipeline] Agent Standard Operating Procedures from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
 
