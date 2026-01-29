@@ -31,9 +31,9 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Phase 2 Checkpoint
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
-- [ ] Phase 3 Checkpoint
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
+- [x] Phase 3 Checkpoint
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -42,12 +42,15 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
-- Deployment URL: [after completion]
-- Stack name: [after creation]
-- Distribution ID: [after creation]
-- S3 Bucket Name: [after creation]
-- CloudFront Log Bucket: [after creation]
-- S3 Log Bucket: [after creation]
+- Deployment URL: https://d22m8a7o5lakbn.cloudfront.net
+- Stack name: FuwariFrontend-preview-sergeyka
+- Distribution ID: E1M9P21ABE91DH
+- S3 Bucket Name: fuwarifrontend-preview-serg-cftos3s3bucketcae9f2be-0yyu3kiuoecw
+- CloudFront Log Bucket: fuwarifrontend-preview-se-cftos3cloudfrontloggingb-xc9hwnrbw5b6
+- S3 Log Bucket: fuwarifrontend-preview-se-cftos3s3loggingbucket64b-glnfj0yguvpn
+- Environment: preview-sergeyka
+- Region: us-east-1
+- Deployment Timestamp: 2026-01-29T19:13:32Z
 
 ## Build Configuration
 
