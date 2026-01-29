@@ -15,10 +15,10 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 **IMPORTANT**: Update this plan after EACH step completes. Mark the step `[x]` and update `last_updated` timestamp.
 
 ## Phase 1: Gather Context and Configure
-- [ ] Step 0: Inform User of Execution Flow
-- [ ] Step 1: Create Deployment Plan
-- [ ] Step 2: Create Deploy Branch
-- [ ] Step 3: Detect Build Configuration
+- [x] Step 0: Inform User of Execution Flow
+- [x] Step 1: Create Deployment Plan
+- [x] Step 2: Create Deploy Branch
+- [x] Step 3: Detect Build Configuration
 - [ ] Step 4: Validate Prerequisites
 - [ ] Step 5: Revisit Deployment Plan
 - [ ] Phase 1 Checkpoint
@@ -51,7 +51,15 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Build Configuration
 
-[To be detected in Step 3]
+- **Framework**: Astro (static site generator)
+- **Package Manager**: pnpm (v9.14.4)
+- **Build Command**: `pnpm run build` (runs `astro build && pagefind --site dist`)
+- **Output Directory**: `dist/`
+- **Base Path**: `/` (root deployment)
+- **Entry Point**: `index.html`
+- **Trailing Slash**: `true` (configured in astro.config.mjs)
+- **Routing Type**: Static multi-page with URL rewrite function (/path/ → /path/index.html)
+- **Lint Command**: `pnpm run lint` (using Biome)
 
 ## Recovery Guide
 
