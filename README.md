@@ -92,6 +92,14 @@ All commands are run from the root of the project, from a terminal:
 
 Check out the [Contributing Guide](https://github.com/saicaca/fuwari/blob/main/CONTRIBUTING.md) for details on how to contribute to this project.
 
+## Deployment
+
+Deployed at: https://d22m8a7o5lakbn.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+
+Deployment command: `./scripts/deploy.sh`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+
 ## 📄 License
 
 This project is licensed under the MIT License.

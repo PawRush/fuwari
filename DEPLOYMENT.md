@@ -5,14 +5,53 @@ app_name: Fuwari
 app_type: Frontend Application (Astro Static Site)
 branch: deploy-to-aws-20260129_185538-sergeyka
 created: 2026-01-29T19:00:00Z
-last_updated: 2026-01-29T19:00:00Z
+completed: 2026-01-29T19:14:00Z
+---
+
+# Deployment Summary
+
+Your app is deployed to AWS! Preview URL: https://d22m8a7o5lakbn.cloudfront.net
+
+**Next Step: Automate Deployments**
+
+You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+
+Services used: CloudFront, S3, CloudFormation, IAM
+
+Questions? Ask your Coding Agent:
+ - What resources were deployed to AWS?
+ - How do I update my deployment?
+
+## Quick Commands
+
+```bash
+# View deployment status
+aws cloudformation describe-stacks --stack-name "FuwariFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
+
+# Invalidate CloudFront cache
+aws cloudfront create-invalidation --distribution-id "E1M9P21ABE91DH" --paths "/*"
+
+# View CloudFront access logs (last hour)
+aws s3 ls "s3://fuwarifrontend-preview-se-cftos3cloudfrontloggingb-xc9hwnrbw5b6/" --recursive | tail -20
+
+# Redeploy
+./scripts/deploy.sh
+```
+
+## Production Readiness
+
+For production deployments, consider:
+- WAF Protection: Add AWS WAF with managed rules (Core Rule Set, Known Bad Inputs) and rate limiting
+- CSP Headers: Configure Content Security Policy in CloudFront response headers (already implemented)
+- Custom Domain: Set up Route 53 and ACM certificate
+- Monitoring: CloudWatch alarms for 4xx/5xx errors and CloudFront metrics
+- Auth Redirect URLs: If using an auth provider (Auth0, Supabase, Firebase, Lovable, etc.), add your CloudFront URL to allowed redirect URLs
+
 ---
 
 # Deployment Plan: Fuwari
 
 Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
-
-**IMPORTANT**: Update this plan after EACH step completes. Mark the step `[x]` and update `last_updated` timestamp.
 
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
@@ -69,7 +108,7 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ```bash
 # Rollback
 cd infra
-cdk destroy "<StackName>"
+pnpm run destroy
 
 # Redeploy
 ./scripts/deploy.sh
@@ -81,7 +120,7 @@ None.
 
 ## Session Log
 
-### Session 1 - 2026-01-29T19:00:00Z
+### Session 1 - 2026-01-29T19:00:00Z - 2026-01-29T19:14:00Z
 Agent: Claude Sonnet 4.5
-Progress: Created deployment plan
-Next: Step 2 - Create deploy branch
+Progress: Complete deployment from analysis through production deployment
+Result: Successfully deployed Fuwari blog to AWS CloudFront + S3
