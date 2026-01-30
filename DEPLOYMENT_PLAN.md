@@ -14,13 +14,24 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 **IMPORTANT**: Update this plan after EACH step completes. Mark the step `[x]` and update `last_updated` timestamp.
 
+## Build Configuration
+
+- Framework: Astro (static site generator)
+- Package manager: pnpm
+- Build command: `pnpm run build`
+- Output directory: `dist/`
+- Base path: `/` (root)
+- Trailing slash: `always`
+- CloudFront config: URL rewrite function (for `/path/index.html` routing)
+- Lint command: `pnpm run lint`
+
 ## Phase 1: Gather Context and Configure
-- [ ] Step 0: Inform User of Execution Flow
-- [ ] Step 1: Create Deployment Plan
-- [ ] Step 2: Create Deploy Branch
-- [ ] Step 3: Detect Build Configuration
-- [ ] Step 4: Validate Prerequisites
-- [ ] Step 5: Revisit Deployment Plan
+- [x] Step 0: Inform User of Execution Flow
+- [x] Step 1: Create Deployment Plan
+- [x] Step 2: Create Deploy Branch
+- [x] Step 3: Detect Build Configuration
+- [x] Step 4: Validate Prerequisites
+- [x] Step 5: Revisit Deployment Plan
 
 ## Phase 2: Build CDK Infrastructure
 - [ ] Step 6: Initialize CDK Foundation
