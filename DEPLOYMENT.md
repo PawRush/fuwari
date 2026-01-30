@@ -10,13 +10,16 @@ last_updated: 2026-01-30T04:25:00Z
 
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d1yj4gfqqwnmq.cloudfront.net
+Your app has automated CI/CD via AWS CodePipeline!
 
-**Next Step: Automate Deployments**
+**Production URL**: https://d2hoqncemnofpx.cloudfront.net
+**Preview URL**: https://d1yj4gfqqwnmq.cloudfront.net
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+Pipeline automatically deploys changes when you push to `deploy-to-aws-20260130_032535-sergeyka` branch.
 
-Services used: CloudFront, S3, CloudFormation, IAM
+**Pipeline Console**: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
+
+Services used: CodePipeline, CodeBuild, CloudFront, S3, CloudFormation, IAM
 
 Questions? Ask your Coding Agent:
  - What resources were deployed to AWS?
@@ -25,16 +28,22 @@ Questions? Ask your Coding Agent:
 ## Quick Commands
 
 ```bash
-# View deployment status
-aws cloudformation describe-stacks --stack-name "FuwariFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
+# Deploy changes (automatic via pipeline)
+git push origin deploy-to-aws-20260130_032535-sergeyka
 
-# Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id "E2WHITQ03RKCIJ" --paths "/*"
+# View pipeline status
+aws codepipeline get-pipeline-state --name "FuwariPipeline" --query 'stageStates[*].[stageName,latestExecution.status]' --output table
 
-# View CloudFront access logs (last hour)
-aws s3 ls "s3://fuwarifrontend-preview-se-cftos3cloudfrontloggingb-kdzowde97p66/" --recursive | tail -20
+# View build logs
+aws logs tail "/aws/codebuild/FuwariPipeline-selfupdate" --follow
 
-# Redeploy
+# Trigger pipeline manually
+aws codepipeline start-pipeline-execution --name "FuwariPipeline"
+
+# View production deployment status
+aws cloudformation describe-stacks --stack-name "FuwariFrontend-prod" --query 'Stacks[0].StackStatus' --output text
+
+# Manual preview deployment (bypasses pipeline)
 ./scripts/deploy.sh
 ```
 
@@ -90,7 +99,18 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
-- Deployment URL: https://d1yj4gfqqwnmq.cloudfront.net
+### Production (via Pipeline)
+- Production URL: https://d2hoqncemnofpx.cloudfront.net
+- Stack name: FuwariFrontend-prod
+- Pipeline name: FuwariPipeline
+- Pipeline ARN: arn:aws:codepipeline:us-east-1:126593893432:FuwariPipeline
+- CodeConnection ARN: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Source branch: deploy-to-aws-20260130_032535-sergeyka
+- Repository: PawRush/fuwari
+- Pipeline deployment timestamp: 2026-01-30T04:40:00Z
+
+### Preview (Manual)
+- Preview URL: https://d1yj4gfqqwnmq.cloudfront.net
 - Stack name: FuwariFrontend-preview-sergeyka
 - Distribution ID: E2WHITQ03RKCIJ
 - S3 bucket name: fuwarifrontend-preview-serg-cftos3s3bucketcae9f2be-x9kroujzhmy0
