@@ -34,14 +34,14 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 5: Revisit Deployment Plan
 
 ## Phase 2: Build CDK Infrastructure
-- [ ] Step 6: Initialize CDK Foundation
-- [ ] Step 7: Generate CDK Stack
-- [ ] Step 8: Create Deployment Script
-- [ ] Step 9: Validate CDK Synth
+- [x] Step 6: Initialize CDK Foundation
+- [x] Step 7: Generate CDK Stack
+- [x] Step 8: Create Deployment Script
+- [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -49,12 +49,13 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
-- Deployment URL: [after completion]
-- Stack name: [after creation]
-- Distribution ID: [after creation]
-- S3 bucket name: [after creation]
-- CloudFront log bucket: [after creation]
-- S3 log bucket: [after creation]
+- Deployment URL: https://d1yj4gfqqwnmq.cloudfront.net
+- Stack name: FuwariFrontend-preview-sergeyka
+- Distribution ID: E2WHITQ03RKCIJ
+- S3 bucket name: fuwarifrontend-preview-serg-cftos3s3bucketcae9f2be-x9kroujzhmy0
+- CloudFront log bucket: fuwarifrontend-preview-se-cftos3cloudfrontloggingb-kdzowde97p66
+- S3 log bucket: fuwarifrontend-preview-se-cftos3s3loggingbucket64b-ihljiw86ozct
+- Deployment timestamp: 2026-01-30T04:22:03Z
 
 ## Recovery Guide
 
