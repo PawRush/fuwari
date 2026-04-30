@@ -5,7 +5,7 @@ app_name: Fuwari
 app_type: CI/CD Pipeline
 branch: deploy-to-aws-20260430_103125-kamielw
 created: 2026-04-30T10:31:25Z
-last_updated: 2026-04-30T10:35:00Z
+last_updated: 2026-04-30T10:40:00Z
 ---
 
 # Deployment Plan: Fuwari Pipeline
@@ -26,9 +26,9 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
   - [x] 2.6: Ensure Production Secrets (SKIPPED - no secrets required)
 
 ## Phase 2: Build and Deploy Pipeline
-- [ ] Step 3: Create CDK Pipeline Stack
-- [ ] Step 4: CDK Bootstrap
-- [ ] Step 5: Deploy Pipeline
+- [x] Step 3: Create CDK Pipeline Stack
+- [x] Step 4: CDK Bootstrap
+- [...] Step 5: Deploy Pipeline
   - [ ] 5.1: Push to remote
   - [ ] 5.2: Authorize CodeConnection
   - [ ] 5.3: Deploy pipeline stack
