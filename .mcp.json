@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "aws-tasks-mcp-server-brazil": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/kamielw/workspace/deploy-to-aws/DeployToAWS/src/AWSTasksMCP",
+        "aws.aws-tasks-mcp-server"
+      ],
+      "env": {
+        "AWS_REGION": "us-east-1",
+        "AGENT_SCRIPTS_DIR": "/Users/kamielw/workspace/deploy-to-aws/DeployToAWS/src/AWSDeployAgentScripts/scripts",
+        "STAGE": "prod"
+      },
+      "disabled": false,
+      "disabledTools": []
+    }
+  }
+}
