@@ -47,7 +47,38 @@ A static blog template built with [Astro](https://astro.build).
     - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
 3. Edit the config file `src/config.ts` to customize your blog.
 4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
-5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
+5. Deploy your blog to Vercel, Netlify, GitHub Pages, or AWS following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
+
+## ☁️ AWS Deployment
+
+This blog is deployed to AWS using S3 + CloudFront with AWS CDK:
+
+- **Live URL**: https://d3k2l416i44onb.cloudfront.net
+- **Infrastructure**: Fully automated with AWS CDK (Infrastructure as Code)
+- **CDN**: Global content delivery via CloudFront
+- **Storage**: Static assets hosted on S3
+
+### Deploy to AWS
+
+```bash
+# Deploy to your personal preview environment
+./scripts/deploy.sh
+
+# Deploy to a specific environment
+./scripts/deploy.sh dev
+./scripts/deploy.sh prod
+```
+
+### Infrastructure Details
+
+The deployment creates:
+- S3 bucket for hosting static files
+- CloudFront distribution for global CDN
+- Automatic SSL/TLS certificates
+- Security headers and CSP policies
+- Access logging for both S3 and CloudFront
+
+For more details, see [DEPLOYMENT_PLAN.md](./DEPLOYMENT_PLAN.md).
 
 ## 📝 Frontmatter of Posts
 

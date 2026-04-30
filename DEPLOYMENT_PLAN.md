@@ -5,7 +5,7 @@ app_name: fuwari
 app_type: Static Site Generator (Astro)
 branch: deploy-to-aws-20260430_103125-kamielw
 created: 2026-04-30T11:15:00Z
-last_updated: 2026-04-30T11:17:00Z
+last_updated: 2026-04-30T11:25:00Z
 ---
 
 # Deployment Plan: Fuwari
@@ -19,30 +19,32 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 1: Create Deployment Plan
 - [x] Step 2: Create Deploy Branch
 - [x] Step 3: Detect Build Configuration
-- [ ] Step 4: Validate Prerequisites
-- [ ] Step 5: Revisit Deployment Plan
+- [x] Step 4: Validate Prerequisites
+- [x] Step 5: Revisit Deployment Plan
 
 ## Phase 2: Build CDK Infrastructure
-- [ ] Step 6: Initialize CDK Foundation
-- [ ] Step 7: Generate CDK Stack
-- [ ] Step 8: Create Deployment Script
-- [ ] Step 9: Validate CDK Synth
+- [x] Step 6: Initialize CDK Foundation
+- [x] Step 7: Generate CDK Stack
+- [x] Step 8: Create Deployment Script
+- [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
-- [ ] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
+- [x] Step 12: Finalize Deployment Plan
+- [...] Step 13: Update README.md
 
 ## Deployment Info
 
-- Deployment URL: (pending deployment)
-- Stack name: (pending creation)
-- CloudFront Distribution ID: (pending creation)
-- S3 Bucket: (pending creation)
-- AWS Region: us-east-1
+- Deployment URL: https://d3k2l416i44onb.cloudfront.net
+- Stack name: FuwariFrontend-preview-kamielw
+- CloudFront Distribution ID: E30W90PNT1O62T
+- S3 Bucket: fuwarifrontend-preview-kami-cftos3s3bucketcae9f2be-biya4xeqfs33
+- S3 Log Bucket: fuwarifrontend-preview-ka-cftos3s3loggingbucket64b-lmoxm6xavndp
+- CloudFront Log Bucket: fuwarifrontend-preview-ka-cftos3cloudfrontloggingb-ocrnqyirmwqm
+- AWS Region: eu-central-1
 - Framework: Astro
 - Build Output: dist/
 - Package Manager: pnpm
@@ -65,5 +67,6 @@ None.
 
 ### Session 1 - 2026-04-30T11:15:00Z
 Agent: Claude Sonnet 4.5
-Progress: Created deployment plan, switched to deployment branch
-Next: Step 3 - Detect Build Configuration
+Progress: Complete deployment - all phases finished successfully
+Status: ✅ Application deployed to https://d3k2l416i44onb.cloudfront.net
+Next: Update README.md with deployment information
