@@ -34,7 +34,7 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Phase 4: Update Documentation
 - [x] Step 12: Finalize Deployment Plan
-- [...] Step 13: Update README.md
+- [x] Step 13: Update README.md
 
 ## Deployment Info
 
