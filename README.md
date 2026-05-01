@@ -19,6 +19,14 @@ A static blog template built with [Astro](https://astro.build).
 [**Tiếng Việt**](https://github.com/saicaca/fuwari/blob/main/docs/README.vi.md) /
 [**Bahasa Indonesia**](https://github.com/saicaca/fuwari/blob/main/docs/README.id.md) (Provided by the community and may not always be up-to-date)
 
+## ☁️ Deployment
+
+Deployed at: **https://d3k2l416i44onb.cloudfront.net**, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+
+Deployment command: `./scripts/deploy.sh`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+
 ## ✨ Features
 
 - [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
