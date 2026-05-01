@@ -5,7 +5,7 @@ app_name: Fuwari
 app_type: Frontend Application (Astro Static Site)
 branch: deploy-to-aws-20260501_121659-kamielw
 created: 2026-05-01T12:48:00Z
-last_updated: 2026-05-01T12:55:00Z
+last_updated: 2026-05-01T12:58:00Z
 ---
 
 # Deployment Plan: Fuwari
@@ -41,9 +41,9 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Update DEPLOYMENT_PLAN.md
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
-- [ ] Update DEPLOYMENT_PLAN.md
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
+- [x] Update DEPLOYMENT_PLAN.md
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -51,12 +51,14 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
-- Deployment URL: (pending)
-- Stack name: (pending)
-- Distribution ID: (pending)
-- S3 Bucket Name: (pending)
-- CloudFront Log Bucket: (pending)
-- S3 Log Bucket: (pending)
+- Deployment URL: https://d3k2l416i44onb.cloudfront.net
+- Stack name: FuwariFrontend-preview-kamielw
+- Distribution ID: E30W90PNT1O62T
+- S3 Bucket Name: fuwarifrontend-preview-kami-cftos3s3bucketcae9f2be-biya4xeqfs33
+- CloudFront Log Bucket: fuwarifrontend-preview-ka-cftos3cloudfrontloggingb-ocrnqyirmwqm
+- S3 Log Bucket: fuwarifrontend-preview-ka-cftos3s3loggingbucket64b-lmoxm6xavndp
+- Region: eu-central-1
+- Deployment Timestamp: 2026-05-01T12:56:48Z
 
 ## Recovery Guide
 
@@ -77,5 +79,5 @@ None.
 
 ### Session 1 - 2026-05-01T12:48:00Z
 Agent: Claude Sonnet 4.5
-Progress: Phase 1 complete (context gathering, build config detection). Phase 2 complete (CDK infrastructure, deployment script, synth validated).
-Next: Execute CDK deployment (Phase 3)
+Progress: Phase 1-3 complete. Deployed to https://d3k2l416i44onb.cloudfront.net
+Next: Finalize documentation (Phase 4)
