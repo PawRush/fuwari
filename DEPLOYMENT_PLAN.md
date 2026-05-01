@@ -5,7 +5,7 @@ app_name: Fuwari
 app_type: Frontend Application (Astro Static Site)
 branch: deploy-to-aws-20260501_121659-kamielw
 created: 2026-05-01T12:48:00Z
-last_updated: 2026-05-01T12:48:00Z
+last_updated: 2026-05-01T12:55:00Z
 ---
 
 # Deployment Plan: Fuwari
@@ -17,18 +17,28 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
 - [x] Step 1: Create Deployment Plan
-- [ ] Step 2: Create Deploy Branch
-- [ ] Step 3: Detect Build Configuration
-- [ ] Step 4: Validate Prerequisites
-- [ ] Step 5: Revisit Deployment Plan
-- [ ] Update DEPLOYMENT_PLAN.md
+- [x] Step 2: Create Deploy Branch
+- [x] Step 3: Detect Build Configuration
+- [x] Step 4: Validate Prerequisites
+- [x] Step 5: Revisit Deployment Plan
+- [x] Update DEPLOYMENT_PLAN.md
+
+### Build Configuration Detected:
+- Framework: Astro (static site generator)
+- Package Manager: pnpm 9.14.4
+- Build Command: `pnpm run build`
+- Output Directory: `dist/`
+- Base Path: `/` (root)
+- Trailing Slash: `always`
+- CloudFront Config: URL rewrite function (rewrites `/path` to `/path/index.html`)
+- Lint Command: `pnpm run lint`
 
 ## Phase 2: Build CDK Infrastructure
-- [ ] Step 6: Initialize CDK Foundation
-- [ ] Step 7: Generate CDK Stack
-- [ ] Step 8: Create Deployment Script
-- [ ] Step 9: Validate CDK Synth
-- [ ] Update DEPLOYMENT_PLAN.md
+- [x] Step 6: Initialize CDK Foundation
+- [x] Step 7: Generate CDK Stack
+- [x] Step 8: Create Deployment Script
+- [x] Step 9: Validate CDK Synth
+- [x] Update DEPLOYMENT_PLAN.md
 
 ## Phase 3: Deploy and Validate
 - [ ] Step 10: Execute CDK Deployment
@@ -67,5 +77,5 @@ None.
 
 ### Session 1 - 2026-05-01T12:48:00Z
 Agent: Claude Sonnet 4.5
-Progress: Created deployment plan, analyzed codebase (Astro static site), routed to deploy-frontend-app SOP
-Next: Create deploy branch (deploy-to-aws-20260501_121659-kamielw)
+Progress: Phase 1 complete (context gathering, build config detection). Phase 2 complete (CDK infrastructure, deployment script, synth validated).
+Next: Execute CDK deployment (Phase 3)
