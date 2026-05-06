@@ -1,121 +1,173 @@
 ---
-sop_name: deploy-frontend-app
+sop_name: setup-pipeline
 repo_name: fuwari
 app_name: Fuwari
-app_type: Frontend Application (Astro Static Site)
+app_type: Frontend Application with CI/CD Pipeline
 branch: deploy-to-aws-20260506_150212-kamielw
-created: 2026-05-06 13:41:59 UTC
-completed: 2026-05-06 15:49:27 UTC
+created: 2026-05-06
+completed: 2026-05-06
 ---
 
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d3k2l416i44onb.cloudfront.net
+Your app has a CodePipeline pipeline. Changes on GitHub branch **deploy-to-aws-20260506_150212-kamielw** will be deployed automatically to production. This is managed by CloudFormation stack **FuwariPipelineStack**.
 
-**Next Step: Automate Deployments**
+**Production URL**: https://dioc9c79u2spc.cloudfront.net
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+**Pipeline Console**: https://eu-central-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
 
-Services used: CloudFront, S3, CloudFormation, IAM
+Services used: CodePipeline, CodeBuild, CodeConnections, CloudFormation, CloudFront, S3, IAM
 
 Questions? Ask your Coding Agent:
- - What resources were deployed to AWS?
- - How do I update my deployment?
+ - How can I change the source branch?
+ - How do I add a custom domain?
+ - What's the difference between preview and prod URLs?
 
 ## Quick Commands
 
 ```bash
-# View deployment status
-aws cloudformation describe-stacks --stack-name "FuwariFrontend-preview-kamielw" --region eu-central-1 --query 'Stacks[0].StackStatus' --output text
+# View pipeline status
+aws codepipeline get-pipeline-state --name "FuwariPipeline" --region eu-central-1 --query 'stageStates[*].[stageName,latestExecution.status]' --output table
+
+# View build logs
+aws logs tail "/aws/codebuild/FuwariPipelineStack-Synth" --region eu-central-1 --follow
+
+# Trigger pipeline manually
+aws codepipeline start-pipeline-execution --name "FuwariPipeline" --region eu-central-1
 
 # Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id "E30W90PNT1O62T" --paths "/*"
-
-# View CloudFront access logs (last hour)
-aws s3 ls "s3://fuwarifrontend-preview-ka-cftos3cloudfrontloggingb-ocrnqyirmwqm/" --recursive | tail -20
-
-# Redeploy
-./scripts/deploy.sh
+aws cloudfront create-invalidation --distribution-id "E1JAOIY6SKQICT" --paths "/*" --region eu-central-1
 ```
+
+## Production Deployment Info
+
+- **Stack Name**: FuwariFrontend-prod
+- **Region**: eu-central-1
+- **Website URL**: https://dioc9c79u2spc.cloudfront.net
+- **Distribution ID**: E1JAOIY6SKQICT
+- **Distribution Domain**: dioc9c79u2spc.cloudfront.net
+- **S3 Bucket**: fuwarifrontend-prod-cftos3s3bucketcae9f2be-p68juu6a1av0
+- **S3 Log Bucket**: fuwarifrontend-prod-cftos3s3loggingbucket64b485fe-zosbsdax9xwm
+- **CloudFront Log Bucket**: fuwarifrontend-prod-cftos3cloudfrontloggingbucket9-3gcxbxdjs10r
+
+## How the Pipeline Works
+
+The pipeline automatically deploys when you push to the **deploy-to-aws-20260506_150212-kamielw** branch:
+
+1. **Source**: Pulls code from GitHub via CodeConnection
+2. **Build (Synth)**: 
+   - Installs dependencies with pnpm
+   - Runs quality checks (lint, check)
+   - Scans for secrets
+   - Builds the frontend (Astro)
+   - Synthesizes CDK infrastructure
+3. **UpdatePipeline**: Self-mutation if pipeline changed
+4. **Assets**: Publishes file assets to S3
+5. **Deploy**: Deploys FuwariFrontend-prod stack with CloudFront distribution
+
+## Pipeline Configuration
+
+**Quality Checks Enabled**:
+- ✓ Lint (biome check)
+- ✓ Type check (astro check)
+- ✓ Secret scanning (@secretlint)
+
+**CodeConnection**:
+- ARN: arn:aws:codeconnections:eu-central-1:189681391221:connection/ee7a600a-99ab-4b3a-bf6c-b42cc9f5a026
+- Status: AVAILABLE
+- Repository: PawRush/fuwari
+- Branch: deploy-to-aws-20260506_150212-kamielw
 
 ## Production Readiness
 
-For production deployments, consider:
-- WAF Protection: Add AWS WAF with managed rules (Core Rule Set, Known Bad Inputs) and rate limiting
-- CSP Headers: Configure Content Security Policy in CloudFront response headers (`script-src 'self'`, `frame-ancestors 'none'`)
-- Custom Domain: Set up Route 53 and ACM certificate
-- Monitoring: CloudWatch alarms for 4xx/5xx errors and CloudFront metrics
-- Auth Redirect URLs: If using an auth provider (Auth0, Supabase, Firebase, Lovable, etc.), add your CloudFront URL to allowed redirect URLs
-
----
-
-# Deployment Plan: Fuwari
-
-Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
-
-## Build Configuration
-- Framework: Astro (static site generator)
-- Package Manager: pnpm
-- Build Command: pnpm run build
-- Output Directory: dist/
-- Base Path: / (root)
-- Trailing Slash: always
-- CloudFront Config: URL rewrite function (/path/index.html routing)
-
-## Phase 1: Gather Context and Configure ✓
-- [x] Step 0: Inform User of Execution Flow
-- [x] Step 1: Create Deployment Plan
-- [x] Step 2: Create Deploy Branch
-- [x] Step 3: Detect Build Configuration
-- [x] Step 4: Validate Prerequisites
-- [x] Step 5: Revisit Deployment Plan
-
-## Phase 2: Build CDK Infrastructure ✓
-- [x] Step 6: Initialize CDK Foundation
-- [x] Step 7: Generate CDK Stack
-- [x] Step 8: Create Deployment Script
-- [x] Step 9: Validate CDK Synth
-
-## Phase 3: Deploy and Validate ✓
-- [x] Step 10: Execute CDK Deployment
-- [x] Step 11: Validate CloudFormation Stack
-
-## Phase 4: Update Documentation ✓
-- [x] Step 12: Finalize Deployment Plan
-- [x] Step 13: Update README.md
-
-## Deployment Info
-
-- Deployment URL: https://d3k2l416i44onb.cloudfront.net
-- Stack name: FuwariFrontend-preview-kamielw
-- Region: eu-central-1
-- Distribution ID: E30W90PNT1O62T
-- Distribution Domain: d3k2l416i44onb.cloudfront.net
-- S3 Bucket Name: fuwarifrontend-preview-kami-cftos3s3bucketcae9f2be-biya4xeqfs33
-- CloudFront Log Bucket: fuwarifrontend-preview-ka-cftos3cloudfrontloggingb-ocrnqyirmwqm
-- S3 Log Bucket: fuwarifrontend-preview-ka-cftos3s3loggingbucket64b-lmoxm6xavndp
-- Deployment Timestamp: 2026-05-06 15:49:27 (UTC)
+For enhanced production deployments, consider:
+- **WAF Protection**: Add AWS WAF with managed rules (Core Rule Set, Known Bad Inputs) and rate limiting
+- **Custom Domain**: Set up Route 53 and ACM certificate
+- **Monitoring**: CloudWatch alarms for 4xx/5xx errors and CloudFront metrics
+- **Backup**: Enable S3 versioning for critical assets
 
 ## Recovery Guide
 
 ```bash
-# Rollback
-cd infra && npx cdk destroy "FuwariFrontend-preview-kamielw" --region eu-central-1
+# View stack events (troubleshooting)
+aws cloudformation describe-stack-events --stack-name "FuwariFrontend-prod" --region eu-central-1 --max-items 20
 
-# Redeploy
-./scripts/deploy.sh
+# Rollback deployment (destroy and redeploy)
+cd infra
+pnpm run destroy:pipeline
+
+# Redeploy pipeline
+pnpm run deploy:pipeline
 ```
 
-## Issues Encountered
+## Troubleshooting
 
-**Issue 1: pnpm --no-progress flag not supported**
-- Error: "Unknown option: 'progress'" when running pnpm install
-- Fix: Removed `--no-progress` flag from deployment script
-- Commit: 79927be
+| Error | Cause | Fix |
+|-------|-------|-----|
+| Pipeline failed at Synth | Lint/test failures, CDK synth errors | View logs: `aws logs tail "/aws/codebuild/FuwariPipelineStack-Synth" --region eu-central-1 --follow` |
+| Stack deployment failed | IAM permissions, resource conflicts | View events: `aws cloudformation describe-stack-events --stack-name "FuwariFrontend-prod" --region eu-central-1` |
+| CodeConnection auth failed | Authorization incomplete | Re-authorize: https://eu-central-1.console.aws.amazon.com/codesuite/settings/connections |
+| Stale content after deploy | CloudFront cache | Invalidate: `aws cloudfront create-invalidation --distribution-id "E1JAOIY6SKQICT" --paths "/*" --region eu-central-1` |
+| Build fails with "command not found" | Missing build tool | Add installation command to pipeline-stack.ts synth commands |
 
-## Session Log
+---
 
-### Session 1 - 2026-05-06 13:41:59 UTC to 15:49:27 UTC
-Agent: Claude Sonnet 4.5
-Progress: Complete deployment from scratch - all 4 phases completed successfully
-Outcome: Website deployed and accessible at https://d3k2l416i44onb.cloudfront.net
+## Original Deployment Plan
+
+### Pipeline Setup Completed: 2026-05-06
+
+**App Identity**
+- App name: Fuwari
+- Stack prefix: Fuwari
+
+**Stacks Detected**
+- FrontendStack (Static website with CloudFront + S3)
+
+**Frontend**
+- Framework: Astro (static site generator)
+- Build output: dist/
+- Package manager: pnpm@9.14.4
+- Build command: pnpm run build
+
+**Backend**
+- Lambda stack: Not detected
+- Lambda functions: None
+- Secrets required: No
+
+**Quality Checks**
+- lint (biome check) - Pass ✓
+- check (astro check) - Pass ✓
+
+**Git Repository**
+- Repository: PawRush/fuwari
+- Branch: deploy-to-aws-20260506_150212-kamielw
+
+### Execution Summary
+
+All phases completed successfully:
+
+✅ **Phase 1: Gather Context and Configure**
+- Detected existing infrastructure
+- Confirmed user preferences
+- Used existing CodeConnection (no secrets needed)
+
+✅ **Phase 2: Build and Deploy Pipeline**
+- Created pipeline-stack.ts
+- Updated infra.ts to support pipeline mode
+- Bootstrapped CDK environment
+- Deployed FuwariPipelineStack
+- Pipeline automatically triggered and deployed production stack
+
+✅ **Phase 3: Documentation**
+- Created DEPLOYMENT.md
+- Updated README.md with pipeline section
+
+### Session Log
+
+**Session 1 - 2026-05-06**
+- Agent: Claude Sonnet 4.5
+- Progress: Complete pipeline setup from scratch
+- Outcome: Pipeline deployed and production site live at https://dioc9c79u2spc.cloudfront.net
+- Pipeline URL: https://eu-central-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
+
+Created with the [setup-pipeline] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).

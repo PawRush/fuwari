@@ -51,11 +51,15 @@ A static blog template built with [Astro](https://astro.build).
 
 ## 🌐 Deployment
 
-Deployed at: https://d3k2l416i44onb.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+**Production**: https://dioc9c79u2spc.cloudfront.net (auto-deployed via CI/CD)
 
-Deployment command: `./scripts/deploy.sh`
+**Pipeline**: https://eu-central-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/FuwariPipeline/view
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+**Deploy**: `git push origin deploy-to-aws-20260506_150212-kamielw`
+
+The pipeline automatically deploys changes pushed to the deployment branch. It runs quality checks (lint, type checking, secret scanning), builds the site, and deploys to production with CloudFront + S3.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details. Created with the [setup-pipeline] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
 
 ## 📝 Frontmatter of Posts
 
