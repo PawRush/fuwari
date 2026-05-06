@@ -38,8 +38,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [...] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -47,12 +47,15 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
-- Deployment URL: [after completion]
-- Stack name: [after creation]
-- Distribution ID: [after creation]
-- S3 Bucket Name: [after creation]
-- CloudFront Log Bucket: [after creation]
-- S3 Log Bucket: [after creation]
+- Deployment URL: https://d3k2l416i44onb.cloudfront.net
+- Stack name: FuwariFrontend-preview-kamielw
+- Region: eu-central-1
+- Distribution ID: E30W90PNT1O62T
+- Distribution Domain: d3k2l416i44onb.cloudfront.net
+- S3 Bucket Name: fuwarifrontend-preview-kami-cftos3s3bucketcae9f2be-biya4xeqfs33
+- CloudFront Log Bucket: fuwarifrontend-preview-ka-cftos3cloudfrontloggingb-ocrnqyirmwqm
+- S3 Log Bucket: fuwarifrontend-preview-ka-cftos3s3loggingbucket64b-lmoxm6xavndp
+- Deployment Timestamp: 2026-05-06 15:49:27 (UTC)
 
 ## Recovery Guide
 
