@@ -19,7 +19,7 @@ pnpm run build
 
 echo "Installing CDK dependencies..."
 cd infra
-pnpm install --no-progress
+pnpm install
 pnpm run build
 
 echo "Bootstrapping CDK..."
